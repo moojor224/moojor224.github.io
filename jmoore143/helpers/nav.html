@@ -1,52 +1,11 @@
-<div class="spacer"><img></div>
-<!-- <div class="nav-item">
-    <div style="position:relative;">
-        <span>hello</span>
-        <ul class="dropdown-menu" style="position: absolute; inset: 0px auto auto 0px; margin: 0px; top: 150%;">
-            <li>
-                <a class="dropdown-item" href="#">Action</a>
-            </li>
-            <li>
-                <a class="dropdown-item" href="#">Another action</a>
-            </li>
-            <li>
-                <a class="dropdown-item" href="#"> Submenu » </a>
-                <ul class="dropdown-menu dropdown-submenu">
-                    <li>
-                        <a class="dropdown-item" href="#">Submenu item 1</a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" href="#">Submenu item 2</a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" href="#">Submenu item 3 » </a>
-                        <ul class="dropdown-menu dropdown-submenu">
-                            <li>
-                                <a class="dropdown-item" href="#">Multi level 1</a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="#">Multi level 2</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" href="#">Submenu item 4</a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" href="#">Submenu item 5</a>
-                    </li>
-                </ul>
-            </li>
-        </ul>
-    </div>
-</div> -->
 <style>
     nav a {
         text-decoration: none;
+        color: var(--light-text);
     }
 
     nav a:visited {
-        color: black;
+        color: var(--light-text);
     }
 
     nav {
@@ -57,6 +16,7 @@
         box-shadow: 0 0 5px black;
         width: 100%;
         height: 80px;
+        background-color: var(--primary);
     }
 
     .nav-item>div>.dropdown-menu {
@@ -69,8 +29,8 @@
 
     .nav-item:hover,
     .nav-item li:hover {
-        background-color: #eee;
-        border-radius: 10px;
+        background-color: #eee5;
+        border-radius: 6px;
     }
 
     .nav-item {
@@ -91,6 +51,7 @@
         top: 100%;
         left: 0;
         margin-top: 2px;
+        background-color: var(--primary);
     }
 
     .dropdown-menu {
@@ -98,14 +59,22 @@
         z-index: 1000;
         display: none;
         min-width: 200px;
-        padding: 8px 0;
+        padding: 0;
         text-align: left;
         list-style: none;
-        background-color: #fff;
         background-clip: padding-box;
         border: 1px solid #444;
-        border-radius: 8px;
+        border-radius: 6px;
         transition: all 0.5s ease;
+
+
+        margin: 0;
+        box-shadow: 0 2px 15px -3px rgba(0, 0, 0, 0.07), 0 10px 20px -2px rgba(0, 0, 0, 0.04);
+        font-size: 14px;
+        top: 100%;
+        left: 0;
+        margin-top: 2px;
+        background-color: var(--primary);
     }
 
     dl,
@@ -117,15 +86,13 @@
 
     .dropdown-menu>li:first-child,
     .dropdown-menu>li:first-child .dropdown-item {
-        border-top-left-radius: 0.5rem;
-        border-top-right-radius: 0.5rem;
-        border-bottom-left-radius: 0;
-        border-bottom-right-radius: 0;
+        border-radius: 6px;
     }
 
     .dropdown-menu li {
         position: relative;
         padding: 5px;
+        padding: 8px 0;
     }
 
     .dropdown-menu>li {
@@ -133,7 +100,7 @@
     }
 
     .dropdown-item {
-        color: black;
+        color: var(--light-text);
         border-radius: 0;
         padding: 10px;
     }
@@ -144,7 +111,7 @@
         display: none;
         position: absolute;
         left: 100%;
-        top: -7px;
+        top: -3px;
     }
 
     ol ol,
@@ -236,7 +203,7 @@
             var top = createElement("li").add(
                 createElement("a", {
                     href: this.href,
-                    innerHTML: this.text + (this.items.length > 0 ? " &gt;&gt;" : ""),
+                    innerHTML: this.text + (this.items.length > 0 ? " »" : ""),
                     classList: "dropdown-item",
                 })
             );
@@ -265,19 +232,35 @@
         var nv = document.querySelector("nav");
         document.head.add(nv.querySelector("style"));
         console.debug("rendering nav");
-        nv.replaceWith(nav.render());
+        var render = nav.render();
+        console.log("rendered nav:",render);
+        nv.replaceWith(render);
     }
 
     var nav = new Nav();
     var projects = new NavItem("Projects", "/jmoore143/projects");
+
     projects.add(
         new NavItem("7 Segment Display", "/jmoore143/projects/7seg"),
     );
 
+    var school = new NavItem("Schoolwork", "/jmoore143/schoolwork");
+    var daily = new NavItem("Daily Assignments", "/jmoore143/schoolwork/daily");
+
+    daily.add(
+        new NavItem("day_01", "/jmoore143/schoolwork/daily/day_01/day_1.html"),
+        new NavItem("day_02", "/jmoore143/schoolwork/daily/day_02/day_2.html"),
+        new NavItem("day_03", "/jmoore143/schoolwork/daily/day_03/day_3.html"),
+        new NavItem("day_04", "/jmoore143/schoolwork/daily/day_04/day_4.html"),
+        new NavItem("day_05", "/jmoore143/schoolwork/daily/day_05/"),
+    );
+
+    school.add(daily);
     nav.add(
         new Spacer(),
         new NavItem("Home", "/jmoore143"),
         projects,
+        school,
     );
     buildNav();
 </script>

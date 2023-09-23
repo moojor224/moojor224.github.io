@@ -15,12 +15,28 @@ function loadScripts() {
         lnk.href = "/jmoore143/css/global.css";
         document.head.append(lnk);
     }
+    if(!document.head.querySelector("link[href='/jmoore143/css/themes.css']")){
+        downloadDebug("themes css file");
+        var lnk = document.createElement("link");
+        lnk.rel = "stylesheet";
+        lnk.href = "/jmoore143/css/themes.css";
+        document.head.append(lnk);
+    }
+    if(!document.head.querySelector("link[href='/jmoore143/css/global.css']")){
+        downloadDebug("global css file");
+        var lnk = document.createElement("link");
+        lnk.rel = "stylesheet";
+        lnk.href = "/jmoore143/css/global.css";
+        document.head.append(lnk);
+    }
     loadNav();
+    setTheme();
 }
 async function loadNav() {
     console.debug("getting nav");
     await fetch("/jmoore143/helpers/nav.html").then(r => {
         r.text().then(t => {
+            // console.log(t);
             var nav;
             while (true) {
                 if (!(nav = document.body.querySelector("nav"))) {
@@ -30,14 +46,14 @@ async function loadNav() {
                         );
                         break;
                     }
-                    nav.add(nav = createElement("nav"));
+                    nav.prepend(nav = createElement("nav"));
                     break;
                 }
                 break;
             }
             nav.innerHTML = t;
-
-            var scr = document.querySelector("nav script");
+            console.log(nav);
+            var scr = nav.querySelector("script");
             var nw = document.createElement("script");
             nw.innerHTML = scr.innerHTML;
             scr.onload = function () {

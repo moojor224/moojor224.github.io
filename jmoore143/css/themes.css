@@ -1,0 +1,25 @@
+body {
+    --text: #000;
+    --background: #fff;
+    --primary: #fff;
+    --secondary: #fff;
+    --accent: #fff;
+    color: var(--text);
+    background-color: var(--background);
+}
+
+body.light, body {
+    --text: #07091d;
+    --background: #eff0fb;
+    --primary: #313dc9;
+    --secondary: #d2d4f4;
+    --accent: #2a3282;
+}
+
+body.dark {
+    --text: #eff0fb;
+    --background: #07091d;
+    --primary: #313dc9;
+    --secondary: #090b25;
+    --accent: #737bd2;
+}
