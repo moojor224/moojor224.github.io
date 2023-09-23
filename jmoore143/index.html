@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Website</title>
+    <script src="/jmoore143/js/jstools.js"></script>
+    <script src="/jmoore143/js/global.js"></script>
+    <script>
+        function section(url, height = 300) {
+            console.log("create section:", url, height);
+            var frame = createElement("iframe", {
+                src: url,
+                style: {
+                    width: "100%",
+                    height: "100%",
+                }
+            });
+            var sec = createElement("div", {
+                style: {
+                    width: "100%",
+                    height: height + "px",
+                }
+            });
+            document.getElementById("content").add(
+                sec.add(frame),
+                createElement("br"),
+                createElement("hr"),
+                createElement("br")
+            )
+        }
+
+    </script>
+</head>
+
+<body style="margin: 0px;">
+    <header>
+        <nav></nav>
+    </header>
+    <div id="content">
+
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moveable Boxes</title>
+    <style>
+        tr {
+            vertical-align: top;
+        }
+
+        body {
+            color: #232F3E;
+            font-family: AmazonEmber;
+        }
+
+        h1 {
+            color: #FF9900;
+            font-size: 30pt;
+            font-weight: bold;
+            text-shadow: 2px 2px #232F3E;
+            padding: 0px;
+            margin-top: 5px;
+            margin-bottom: -10px;
+            font-family: AmazonEmber;
+        }
+
+
+        h2 {
+            color: #FFF;
+            font-weight: bold;
+            padding: 0px;
+            margin: 0px;
+            border-radius: .2rem;
+            background: #232F3E;
+            padding: 7px;
+        }
+
+        p {
+            display: inline;
+        }
+
+        .pm1box {
+            width: 305px;
+            height: 480px;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            border: 1px solid #232F3E;
+            border-radius: 5px;
+            padding-bottom: 5px;
+            font-weight: bold;
+            text-align: center;
+            font-family: AmazonEmber;
+            display: block;
+            color: #232F3E;
+            background: linear-gradient(to bottom, rgba(234, 231, 222, 1) 0%, rgba(237, 241, 244, 1) 50%, rgba(202, 204, 206, 1) 100%);
+        }
+
+        .buttons {
+            float: left;
+        }
+
+        .buttonsleft {
+            float: left;
+            margin-right: 20px;
+        }
+
+        .buttonsright {
+            float: left;
+        }
+
+        .titletext {
+            display: block;
+            color: #232F3E;
+        }
+
+        .apmbutton {
+            -moz-border-radius: 5px;
+            border-radius: 5px;
+            font-family: AmazonEmber;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            text-decoration: none;
+            display: inline-block;
+            /*        font-weight: bold;*/
+            color: #232F3E;
+        }
+
+        .apmbutton:hover {
+            border: 1px solid #f7b800;
+            background-color: #ffc92b;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 33%);
+            grid-gap: 1%;
+            width: 98%;
+            margin: auto;
+        }
+
+        .grid-container-top {
+            display: grid;
+            grid-template-columns: 305px 80%;
+            grid-gap: 1%;
+            width: 98%;
+            margin: auto;
+        }
+
+        textarea {
+            overflow-y: scroll;
+            overflow-x: hidden;
+            font-size: 16px;
+            resize: none;
+            width: 90%;
+        }
+
+        input[type=text] {
+            background: #ffffff;
+            border-radius: 3px;
+            border: solid 1px #999999;
+            height: 20px;
+            padding-left: 10px;
+            width: 200px;
+        }
+
+        button {
+            border-style: solid;
+            border-width: .1rem;
+            border-radius: .3rem;
+            background: #FFD814;
+            border-color: #FCD200;
+            border-color: #a88734 #9c7e31 #846a29;
+            font-family: AmazonEmber;
+            /*        font-weight: bold;*/
+            padding: 10px;
+            color: #232F3E;
+            background: linear-gradient(to bottom, #f7dfa5, #f0c14b);
+            margin-top: 5px;
+        }
+
+
+        .button2 {
+            border-style: solid;
+            border-width: .1rem;
+            border-radius: .3rem;
+            border-color: #adb1b8 #a2a6ac #8d9096;
+            font-family: AmazonEmber;
+            /*        font-weight: bold;*/
+            padding: 10px;
+            color: #232F3E;
+            background: linear-gradient(to bottom, #f7f8fa, #e7e9ec);
+            margin-top: 5px;
+        }
+
+        button:hover {
+            color: #232F3E;
+            border: 1px solid #f7b800;
+            background-color: #ffc92b;
+            cursor: pointer;
+        }
+
+        button:active {
+            border: 1px solid #f7b800;
+            background-color: #ffc92b;
+            background-image: -moz-linear-gradient(top, #ffc92b, #ce9a01);
+            background-image: linear-gradient(to bottom, #ffc92b, #ce9a01);
+            filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=#ffc92b, endColorstr=#ce9a01);
+        }
+
+        select {
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+
+        select {
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+
+        .multiBox {
+            width: 500px;
+            margin-left: 20px;
+        }
+
+        div#masterTable>span {
+            display: flex;
+            flex-shrink: 1;
+            padding: 2px;
+        }
+
+        div#masterTable>span>span {
+            width: 450px;
+        }
+
+        div#masterTable {
+            list-style: none;
+            flex-shrink: 1;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        li.drag-sort-active {
+            background: transparent;
+            color: transparent;
+            border: 1px solid #4ca1af;
+        }   
+
+        span.drag-sort-active {
+            background: transparent;
+            color: transparent;
+        }
+
+        .box {
+            width: 200px;
+            height: 200px;
+            border: 1px solid black;
+        }
+    </style>
+    <script>
+        function enableDragSort(listClass) {
+            var sortableLists = document.getElementsByClassName(listClass);
+            [...sortableLists].forEach((list) => {
+                enableDragList(list);
+            });
+        }
+
+        function enableDragList(list) {
+            Array.prototype.map.call(list.children, (item) => { enableDragItem(item) });
+        }
+
+        function enableDragItem(item) {
+            item.querySelector("h2").setAttribute('draggable', true)
+            // item.ondragover = handleDrag;
+            // item.ondragend = handleDrop;
+            item.querySelector("h2").ondrag = onDrag;
+            item.ondragover = onDragOver;
+            item.onDragEnd = dragEnd;
+        }
+
+        function onDrag() {
+            event.target.classList.add("dragging");
+        }
+
+        function onDragOver() {
+            var swapItem = event.target;
+            var selectedItem = document.querySelector(".dragging");
+
+            var count = 0;
+            while (!Array.from(selectedItem.parentNode.classList).includes("drag-sort-enable") && count < 100) {
+                selectedItem = selectedItem.parentNode;
+                count++;
+            }
+            count = 0;
+
+
+            while (!Array.from(swapItem.parentNode.classList).includes("drag-sort-enable") && count < 100) {
+                swapItem = swapItem.parentNode;
+                count++;
+            }
+            swapItem = swapItem.nextElementSibling || swapItem;
+            count = 0;
+
+            var list = swapItem.parentNode
+            var arr = Array.from(selectedItem.parentNode.children);
+            var dragging = arr.indexOf(selectedItem),
+                dragover = arr.indexOf(swapItem);
+            if(dragging > dragover){
+                list.insertBefore(selectedItem, swapItem)
+            }else if (dragover > dragging){
+                list.insertBefore(swapItem, selectedItem)
+            }
+
+            document.querySelector(".dragging").classList.remove("dragging");
+        }
+
+        function dragEnd() {
+            document.querySelector(".dragging").classList.remove("dragging");
+        }
+    </script>
+</head>
+
+<body id="body">
+    <div id="masterTable" class="drag-sort-enable">
+
+        <span class="box">
+            <span style="width: 460px !important;">
+                <div class="titleBar">
+                    <h2>Title</h2>
+                </div>
+            </span>
+        </span>
+        <span class="box">
+            <span style="width: 460px !important;">
+                <div class="titleBar">
+                    <h2>Title 2</h2>
+                </div>
+            </span>
+        </span>
+        <span class="box">
+            <span style="width: 460px !important;">
+                <div class="titleBar">
+                    <h2>Title 3</h2>
+                </div>
+            </span>
+        </span>
+    </div>
+    <script>
+        enableDragSort('drag-sort-enable');
+    </script>
+</body>
+
+</html>
