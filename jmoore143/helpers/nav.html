@@ -44,9 +44,11 @@
     nav a {
         text-decoration: none;
     }
+
     nav a:visited {
         color: black;
     }
+
     nav {
         display: flex;
         justify-content: flex-start;
@@ -80,7 +82,6 @@
     }
 
     .dropdown-menu {
-        color: #4f4f4f;
         margin: 0;
         padding-top: 0;
         padding-bottom: 0;
@@ -132,7 +133,7 @@
     }
 
     .dropdown-item {
-        color: #4f4f4f;
+        color: black;
         border-radius: 0;
         padding: 10px;
     }
@@ -167,6 +168,7 @@
         height: 100%;
         display: inline-block;
     }
+
     .spacer img {
         content: url("/jmoore143/res/joel.webp");
         max-width: 100%;
@@ -189,7 +191,7 @@
         render() {
             var top = createElement("nav");
             this.items.forEach(item => {
-                if(item.constructor.name !== "NavItem"){
+                if (item.constructor.name !== "NavItem") {
                     top.add(item.render());
                     return;
                 }
@@ -234,7 +236,7 @@
             var top = createElement("li").add(
                 createElement("a", {
                     href: this.href,
-                    innerHTML: this.text,
+                    innerHTML: this.text + (this.items.length > 0 ? " &gt;&gt;" : ""),
                     classList: "dropdown-item",
                 })
             );
@@ -249,13 +251,14 @@
             return top;
         }
     }
-    class Spacer{
-        render(){
+    class Spacer {
+        render() {
             return createElement("div", {
                 classList: "spacer"
             }).add(createElement("img"))
         }
     }
+    
     console.debug("building nav");
     function buildNav() {
         console.debug("adding nav element");
@@ -264,10 +267,11 @@
         console.debug("rendering nav");
         nv.replaceWith(nav.render());
     }
+
     var nav = new Nav();
     var projects = new NavItem("Projects", "/jmoore143/projects");
     projects.add(
-        new NavItem("7 Segment Display", "/jmoore143/projects/7seg")
+        new NavItem("7 Segment Display", "/jmoore143/projects/7seg"),
     );
 
     nav.add(

@@ -1,10 +1,15 @@
+function downloadDebug(name){
+    console.debug(`%c${name} %cnot included. importing...`, "font-style: bold;font-size:20px;");
+}
 function loadScripts() {
     if (!window.createElement) {
+        downloadDebug("jstools");
         var scr = document.createElement("script");
         scr.src = "/jmoore143/js/jstools.js";
         document.head.append(scr);
     }
     if(!["0px", "0"].includes(window.getComputedStyle(document.body).margin)){
+        downloadDebug("global styles");
         var lnk = document.createElement("link");
         lnk.rel = "stylesheet";
         lnk.href = "/jmoore143/css/global.css";
