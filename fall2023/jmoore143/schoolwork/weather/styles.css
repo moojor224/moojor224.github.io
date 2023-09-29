@@ -1,0 +1,31 @@
+body {
+    font-family: Helvetica, sans-serif;
+    color: #1e1e1e;
+    background-color: #c3c3c3;
+ }
+ 
+ .hidden {
+    display: none;
+ }
+ 
+ .error-msg {
+    color: red;
+ }
+ 
+ /* table, td { border : 1px solid black;}  */
+
+
+ table {
+    margin-bottom: 15px;
+
+ }
+ 
+ table caption {
+    font-weight: bold;
+ }
+ 
+ table td {
+    text-align: center;
+    padding: 3px 8px;
+ }
+ 

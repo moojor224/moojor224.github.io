@@ -10,7 +10,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Graphics</title>
-    <script src="/jmoore143/js/backhome.js"></script>
+    <script src="/fall2023/jmoore143/js/backhome.js"></script><!-- Ignore this script. It's for when the file is uploaded onto the server-->
     <style>
         body {
             background-color: #868686;
@@ -56,7 +56,7 @@
         div.flexbox-item {
             border: 3px solid black;
             /* border-radius: 7px; */
-            width: 125px;
+            width: 200px;
             padding: 8px;
             margin: 8px;
 
@@ -68,9 +68,41 @@
         }
 
         img {
-            width: 125px;
+            width: 200px;
             /* height: 125px; */
         }
+        table, tr, td {
+            border: 3px solid green;
+            border-collapse: collapse;
+            
+        }
+        .innerp::first-letter {
+            font-size: 6rem;
+            float: left;
+        }
+        @keyframes rotate {
+            from{
+                transform: rotate(0deg);
+            }
+            to{
+                transform: rotate(360deg);
+            }
+        }
+        * {
+            /* width: 300px; */
+            animation-name: rotate;
+            animation-duration: 100000s;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+        }
+        img:hover {
+            /* width: 300px; */
+            animation-name: rotate;
+            animation-duration: 0.5s;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+        }
+
     </style>
 </head>
 
@@ -78,6 +110,7 @@
     <header>
         <h1>Random Graphics that are used in our assignments</h1>
         <hr>
+        <span>if you wait on this page long enough, things might start to look a bit weird</span>
     </header>
     <main>
         <div class="container">
@@ -114,8 +147,23 @@
                 <img src="../../graphics/art6.jpg" alt="art 6 graphic" title="art6.jpg">
             </div>
         </div>
+        <table>
+            <tr>
+                <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione, aliquid? At iusto beatae
+                    doloremque debitis, dolor esse vero fugit necessitatibus!</td>
+                <td>Laudantium, mollitia. Explicabo excepturi et enim consequuntur quam error deserunt obcaecati dolor
+                    vitae nam! Earum quasi praesentium itaque quod tenetur?</td>
+            </tr>
+            <tr>
+                <td>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fuga velit delectus quas possimus
+                    veritatis harum ab nemo consequatur rem ducimus.</td>
+                <td>Ut omnis amet, facilis similique laboriosam aperiam beatae commodi possimus voluptatem earum nostrum
+                    illum ipsum obcaecati dicta voluptates, officia neque.</td>
+            </tr>
+        </table>
     </main>
     <footer>
+        <img id="jordan_1" src="/fall2023/jmoore143/schoolwork/graphics/Screenshot from 2023-09-28 20-28-44.png" alt="">
     </footer>
 </body>
 
