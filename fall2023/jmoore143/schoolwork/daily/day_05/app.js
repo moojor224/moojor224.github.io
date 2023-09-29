@@ -1,7 +1,6 @@
 let $ = function (e) {
     return document.getElementById(e);
-};
-$ = document.getElementById;
+}
 
 let joinList = function () {
 

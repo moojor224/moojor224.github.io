@@ -137,7 +137,7 @@
     }
 
     .spacer img {
-        content: url("/jmoore143/res/joel.webp");
+        content: url("/fall2023/jmoore143/res/joel.webp");
         max-width: 100%;
     }
 </style>
@@ -238,27 +238,28 @@
     }
 
     var nav = new Nav();
-    var projects = new NavItem("Projects", "/jmoore143/projects");
+    var projects = new NavItem("Projects", "/fall2023/jmoore143/projects");
 
     projects.add(
-        new NavItem("7 Segment Display", "/jmoore143/projects/7seg"),
+        new NavItem("7 Segment Display", "/fall2023/jmoore143/projects/7seg"),
     );
 
-    var school = new NavItem("Schoolwork", "/jmoore143/schoolwork");
-    var daily = new NavItem("Daily Assignments", "/jmoore143/schoolwork/daily");
+    var school = new NavItem("Schoolwork", "/fall2023/jmoore143/schoolwork");
+    var daily = new NavItem("Daily Assignments", "/fall2023/jmoore143/schoolwork/daily");
 
     daily.add(
-        new NavItem("day_01", "/jmoore143/schoolwork/daily/day_01/day_1.html"),
-        new NavItem("day_02", "/jmoore143/schoolwork/daily/day_02/day_2.html"),
-        new NavItem("day_03", "/jmoore143/schoolwork/daily/day_03/day_3.html"),
-        new NavItem("day_04", "/jmoore143/schoolwork/daily/day_04/day_4.html"),
-        new NavItem("day_05", "/jmoore143/schoolwork/daily/day_05/"),
+        new NavItem("day_01", "/fall2023/jmoore143/schoolwork/daily/day_01/day_1.html"),
+        new NavItem("day_02", "/fall2023/jmoore143/schoolwork/daily/day_02/day_2.html"),
+        new NavItem("day_03", "/fall2023/jmoore143/schoolwork/daily/day_03/day_3.html"),
+        new NavItem("day_04", "/fall2023/jmoore143/schoolwork/daily/day_04/day_4.html"),
+        new NavItem("day_05", "/fall2023/jmoore143/schoolwork/daily/day_05/"),
+        new NavItem("day_06", "/fall2023/jmoore143/schoolwork/daily/day_06/day_06.html"),
     );
 
     school.add(daily);
     nav.add(
         new Spacer(),
-        new NavItem("Home", "/jmoore143"),
+        new NavItem("Home", "/fall2023/jmoore143"),
         projects,
         school,
     );
