@@ -85,7 +85,7 @@ function getWeatherForecast(city, cityId) {
 // Display forecast received from JSON  
 function responseReceived(xhr, cityId, city) {
    // No longer loading
-   hideElement("loading-" + cityPId);
+   hideElement("loading-" + cityId);
 
    // 200 status indicates forecast successfully received
    if (xhr.status === 200) {

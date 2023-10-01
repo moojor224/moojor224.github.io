@@ -1,6 +1,7 @@
 window.onload = function () {
     let a = document.createElement("a");
-    a.href = "/fall2023/jmoore143/";
+    // a.href = "/fall2023/jmoore143/";
+    a.onclick = ()=>history.back();
     a.className = "home";
     a.innerHTML = "back home";
     let style = document.createElement("style");

@@ -65,4 +65,18 @@ async function loadNav() {
         });
     });
 }
+function setTheme() {
+    if (!document.body.classList.contains("dark")) {
+        document.body.classList.add("dark");
+    }
+}
+function waitForModule(module, callback) {
+    console.log("waiting for module: %c" + module, "color: #66f; font-size: 20px;");
+    if (window[module]) {
+        console.log("module loaded:", window[module]);
+        callback();
+    } else {
+        window.setTimeout(() => waitForModule(module, callback), 1000);
+    }
+}
 window.onload = loadScripts;
