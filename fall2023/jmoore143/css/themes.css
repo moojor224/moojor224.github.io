@@ -1,29 +1,4 @@
-/* body {
-    --text: #000;
-    --background: #fff;
-    --primary: #fff;
-    --secondary: #fff;
-    --accent: #fff;
-    color: var(--text);
-    background-color: var(--background);
-}
 
-body.light,
-body {
-    --text: #07091d;
-    --background: #eff0fb;
-    --primary: #313dc9;
-    --secondary: #cfd2fc;
-    --accent: #2a3282;
-}
-
-body.dark {
-    --text: #eff0fb;
-    --background: #03094b;
-    --primary: #313dc9;
-    --secondary: #030630;
-    --accent: #737bd2;
-} */
 
 body.theme3 ,
 body.theme3{
