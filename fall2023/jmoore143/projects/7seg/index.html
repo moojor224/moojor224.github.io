@@ -5,20 +5,75 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>7 Segment Display</title>
+    <script src="/fall2023/jmoore143/js/jstools.js"></script>
     <script src="/fall2023/jmoore143/js/global.js"></script>
     <script src="/fall2023/jmoore143/js/vanilla-tree-viewer/index.js"></script>
+    <script src="/fall2023/jmoore143/projects/js/project.js"></script>
+    <script src="/fall2023/jmoore143/js/highlightjs/highlight.js"></script>
+
+    <link rel="stylesheet" href="/fall2023/jmoore143/css/ember fonts.css">
+    <link rel="stylesheet" href="/fall2023/jmoore143/css/fontawesome/css/all.css">
     <link rel="stylesheet" href="/fall2023/jmoore143/js/vanilla-tree-viewer/main.css">
-    <link rel="stylesheet" href="/fall2023/jmoore143/css/project.css">
-    <style src="/fall2023/jmoore143/js/project.js"></style>
+    <link rel="stylesheet" href="/fall2023/jmoore143/projects/css/project.css">
+    <link rel="stylesheet" href="/fall2023/jmoore143/css/global.css">
+    <link rel="stylesheet" href="/fall2023/jmoore143/css/themes.css">
 </head>
 
-<body class="dark">
-    <main>
-        
+<body class="theme3">
+    <main class="hide-scroll">
+        <!-- <ul>
+            <li><a href="">materials</a></li>
+        </ul> -->
     </main>
+    <footer>
+
+    </footer>
     <script>
         let project = new Project("7 Segment Display");
+        let step01 = new Step("Materials Prep");
+        step01.addImage("/fall2023/jmoore143/projects/7seg/res/step_01_01.jpg");
+        step01.addImage("/fall2023/jmoore143/projects/7seg/res/step_01_02.jpg");
+        step01.addText("The materials used for this project are as follows:<br>one 3d printed 7 segment module, seven neopixel LEDs, and 16 right angle breadboard headers");
+        step01.addText("There are also 2 reuseable 3D printed jigs to help with assembly");
 
+        let step02 = new Step("Breadboard Header Prep");
+        step02.addImage("/fall2023/jmoore143/projects/7seg/res/step_02_01.jpg");
+        step02.addText("first, all of the pins are removed from their black plastic frame. These will be used to connect the LEDs together.");
+
+        let step03 = new Step("Breadboard Header Cutting");
+        step03.addImage("/fall2023/jmoore143/projects/7seg/res/step_03_01.jpg");
+        step03.addImage("/fall2023/jmoore143/projects/7seg/res/step_03_02.jpg");
+        step03.addText("The long side of 6 pins from the previous step are cut in half to make the legs about the same length (extra pin sown abovve for before/after comparison)");
+        step03.addText("2 pins are completely straightened, and 2 more are bent to a 270&deg; angle");
+        step03.addText("the last 6 pins are left as they are");
+
+        let step04 = new Step("LED Soldering Jig Prep");
+        step04.addImage("/fall2023/jmoore143/projects/7seg/res/step_04_01.jpg");
+        step04.addText("Next, the LEDs are all placed into the soldering jisg to hold them in place");
+        step04.addText("The arrows on the LED modules denote the flow of data, and must be positioned such that the data can connect from one end to the other in an 'S' pattern");
+
+
+        project.addStep(step01, step02, step03, step04);
+
+        // tree path, file name, url, language
+        project.addFile(
+            "/",
+            "main.py",
+            "/fall2023/jmoore143/projects/7seg/files/main.py",
+            "python"
+        );
+        project.addFile(
+            "/",
+            "segment_display.py",
+            "/fall2023/jmoore143/projects/7seg/files/segment_display.py",
+            "python"
+        );
+        project.addMaterial("1", "name", "link");
+        project.addMaterial("1", "name", "link");
+        project.addMaterial("1", "name", "link");
+        project.addMaterial("1", "name", "link");
+        document.querySelector("main").append(project.render());
+        VanillaTreeViewer.renderAll();
     </script>
 </body>
 

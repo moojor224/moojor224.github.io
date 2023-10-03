@@ -1,4 +1,4 @@
-body {
+/* body {
     --text: #000;
     --background: #fff;
     --primary: #fff;
@@ -8,18 +8,44 @@ body {
     background-color: var(--background);
 }
 
-body.light, body {
+body.light,
+body {
     --text: #07091d;
     --background: #eff0fb;
     --primary: #313dc9;
-    --secondary: #d2d4f4;
+    --secondary: #cfd2fc;
     --accent: #2a3282;
 }
 
 body.dark {
     --text: #eff0fb;
-    --background: #07091d;
+    --background: #03094b;
     --primary: #313dc9;
-    --secondary: #090b25;
+    --secondary: #030630;
     --accent: #737bd2;
+} */
+
+body.theme3 ,
+body.theme3{
+    --text: #ffffff;
+    --background: #202124;
+    --primary: #5277e5;
+    --secondary: #303134;
+    --accent: #1e4fdf;
+    color: var(--text);
+    background-color: var(--background);
+}
+
+body {
+    color: var(--text);
+    font-family: "Ember";
+}
+
+a, a:visited {
+    color: var(--text);
+}
+main a:after:not(.prev):not(.next){
+    content: "\00a0\00a0\f08e";
+    font-family: FontAwesome;
+    font-size: 0.6rem;
 }

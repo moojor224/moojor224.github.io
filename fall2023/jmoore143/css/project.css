@@ -1,9 +1,0 @@
-main {
-    margin-left: 10%;
-    margin-right: 10%;
-    width: 80%;
-    overflow-y: auto;
-}
-main * {
-    border: 1px solid white;
-}

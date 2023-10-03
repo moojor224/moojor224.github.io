@@ -6,3 +6,23 @@
 body {
     margin: 0px;
 }
+
+.hide-scroll,
+body {
+    /*IE, edge, firefox*/
+    -ms-overflow-style: none;
+    scrollbar-width: 0px;
+}
+
+.hide-scroll::-webkit-scrollbar,
+body::-webkit-scrollbar {
+    /*chrome, safari, opera*/
+    display: none;
+}
+
+.text-border {
+    text-shadow: 1px 1px var(--accent),
+        -1px -1px var(--accent),
+        -1px 1px var(--accent),
+        1px -1px var(--accent);
+}
