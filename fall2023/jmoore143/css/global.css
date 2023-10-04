@@ -11,7 +11,7 @@ body {
 body {
     /*IE, edge, firefox*/
     -ms-overflow-style: none;
-    scrollbar-width: 0px;
+    scrollbar-width: none;
 }
 
 .hide-scroll::-webkit-scrollbar,
