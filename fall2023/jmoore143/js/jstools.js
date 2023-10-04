@@ -1,13 +1,7 @@
 function createElement(tag = "span", data = {}) {
-    tag = typeof(tag) === "string" ? (["svg", "circle", "text"].includes(tag) ? document.createElementNS("http://www.w3.org/2000/svg", tag) : document.createElement(tag)) : tag;
-    if (["svg", "circle", "text"].includes(tag.tagName)) {
-        tag.setAttributeNS("http://www.w3.org/2000/xmlns/", "xmlns:xlink", "http://www.w3.org/1999/xlink");
-    }
+    tag = typeof(tag) === "string" ? document.createElement(tag) : tag;
     Object.keys(data).forEach(e => {
         if (typeof data[e] === "object") {
-            if (e === "data") {
-                e = "dataset";
-            }
             createElement(tag[e] || (tag[e] = {}), data[e]);
         } else {
             tag[e] = data[e];
