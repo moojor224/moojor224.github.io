@@ -3,20 +3,6 @@ function downloadDebug(name) {
 }
 
 function loadScripts() {
-    if (!document.head.querySelector("link[href='/fall2023/jmoore143/css/themes.css']")) {
-        downloadDebug("themes css file");
-        var lnk = document.createElement("link");
-        lnk.rel = "stylesheet";
-        // lnk.href = "/fall2023/jmoore143/css/themes.css";
-        document.head.append(lnk);
-    }
-    if (!document.head.querySelector("link[href='/fall2023/jmoore143/css/global.css']")) {
-        downloadDebug("global css file");
-        var lnk = document.createElement("link");
-        lnk.rel = "stylesheet";
-        // lnk.href = "/fall2023/jmoore143/css/global.css";
-        document.head.append(lnk);
-    }
     loadNav();
     setTheme();
 }
