@@ -26,3 +26,17 @@ body::-webkit-scrollbar {
         -1px 1px var(--accent),
         1px -1px var(--accent);
 }
+
+main {
+    display: flex;
+    justify-content: center;
+    margin-left: 10%;
+    margin-right: 10%;
+    padding-bottom: 300px;
+    width: 80%;
+    overflow-y: auto;
+}
+
+main>div {
+    width: 800px;
+}

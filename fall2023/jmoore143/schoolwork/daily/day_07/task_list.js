@@ -45,5 +45,10 @@ window.onload = function() {
     console.log('onload event handler');
     $("add_task").onclick = addToTaskList;
     $("clear_tasks").onclick = clearTaskList;   
+    $("task").onkeyup = function (event){
+        if(event.key == "Enter"){
+            addToTaskList();
+        }
+    }
     displayTaskList();
 };

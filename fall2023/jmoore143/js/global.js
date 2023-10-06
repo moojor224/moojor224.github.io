@@ -57,4 +57,26 @@ function setTheme() {
         // document.body.classList.add("dark");
     }
 }
+function makeTOC(...args) {
+    let toc = createElement("div", {
+        id: "toc_container"
+    });
+    function recurse(data){
+        if(Array.isArray(data)){
+            return createElement("ul").add(
+                ...data.map(e=>recurse(e))
+            );
+        }
+        return createElement("li").add(
+            createElement("a", {
+                innerHTML: data.text,
+                href: data.link,
+            })
+        );
+    }
+    let ul = createElement("ul");
+    ul.add(...args.map(e=>recurse(e)));
+    toc.add(ul);
+    return toc;
+}
 window.onload = loadScripts;

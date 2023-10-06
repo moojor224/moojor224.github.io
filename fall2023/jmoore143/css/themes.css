@@ -1,7 +1,5 @@
-
-
-body.theme3 ,
-body.theme3{
+body.dark,
+body.theme3 {
     --text: #ffffff;
     --background: #202124;
     --primary: #5277e5;
@@ -16,10 +14,12 @@ body {
     font-family: "Ember";
 }
 
-a, a:visited {
+a,
+a:visited {
     color: var(--text);
 }
-main a:after:not(.prev):not(.next){
+
+main a:after:not(.prev):not(.next) {
     content: "\00a0\00a0\f08e";
     font-family: FontAwesome;
     font-size: 0.6rem;

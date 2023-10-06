@@ -101,8 +101,8 @@
 
     .dropdown-menu li {
         position: relative;
-        padding: 5px;
-        padding: 8px 0;
+        /* padding: 5px; */
+        /* padding: 8px 0; */
     }
 
     .dropdown-menu>li {
@@ -113,7 +113,8 @@
         color: var(--light-text);
         border-radius: 0;
         padding: 10px;
-        width: 100%;
+        width: calc(100% - 20px);
+        display: inline-block;
     }
 
 
@@ -258,17 +259,28 @@
     // var school = new NavItem("Schoolwork", "/fall2023/jmoore143/schoolwork");
     var school = new NavItem("Schoolwork", "#");
     var daily = new NavItem("Daily Assignments", "/fall2023/jmoore143/schoolwork/daily");
+    let homework = new NavItem("Homework Assignments", "/fall2023/jmoore143/schoolwork/HW");
 
     daily.add(
-        new NavItem("day_01", "/fall2023/jmoore143/schoolwork/daily/day_01/day_1.html"),
-        new NavItem("day_02", "/fall2023/jmoore143/schoolwork/daily/day_02/day_2.html"),
-        new NavItem("day_03", "/fall2023/jmoore143/schoolwork/daily/day_03/day_3.html"),
-        new NavItem("day_04", "/fall2023/jmoore143/schoolwork/daily/day_04/day_4.html"),
-        new NavItem("day_05", "/fall2023/jmoore143/schoolwork/daily/day_05/"),
-        new NavItem("day_06", "/fall2023/jmoore143/schoolwork/daily/day_06/day_6.html"),
+        new NavItem("Day 1", "/fall2023/jmoore143/schoolwork/daily/day_01/day_1.html"),
+        new NavItem("Day 2", "/fall2023/jmoore143/schoolwork/daily/day_02/day_2.html"),
+        new NavItem("Day 3", "/fall2023/jmoore143/schoolwork/daily/day_03/day_3.html"),
+        new NavItem("Day 4", "/fall2023/jmoore143/schoolwork/daily/day_04/day_4.html"),
+        new NavItem("Day 5", "/fall2023/jmoore143/schoolwork/daily/day_05/"),
+        new NavItem("Day 6", "/fall2023/jmoore143/schoolwork/daily/day_06/day_6.html"),
+        new NavItem("Day 7", "/fall2023/jmoore143/schoolwork/daily/day_07"),
     );
 
-    school.add(daily);
+    homework.add(
+        new NavItem("index_1.1.html", "/fall2023/jmoore143/schoolwork/HW/index_1.1.html"),
+        new NavItem("index_1.2.html", "/fall2023/jmoore143/schoolwork/HW/index_1.2.html"),
+        new NavItem("index_1.3.html", "/fall2023/jmoore143/schoolwork/HW/index_1.3.html"),
+        new NavItem("index_1.4.html", "/fall2023/jmoore143/schoolwork/HW/index_1.4.html"),
+        new NavItem("index_1.5.html", "/fall2023/jmoore143/schoolwork/HW/index_1.5.html"),
+        new NavItem("index_1.6.html", "/fall2023/jmoore143/schoolwork/HW/index_1.6.html"),
+    );
+
+    school.add(daily, homework);
     nav.add(
         new Spacer(),
         new NavItem("Home", "/fall2023/jmoore143"),

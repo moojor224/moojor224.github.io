@@ -3,6 +3,7 @@ var sortTaskList = function(tasks) {
     var isArray = Array.isArray(tasks);
     if (isArray) {
         tasks.sort();
+        // tasks.reverse();
     }
     return isArray;
 };

@@ -6,6 +6,9 @@ body {
     margin: 0 auto;
     border: 3px solid blue;
     padding: 0 2em 1em;
+    background-image: url("/fall2023/jmoore143/schoolwork/graphics/25.jpg");
+    background-attachment: fixed;
+    background-size: 5%;
 }
 h1 { 
     font-size: 150%;
@@ -27,6 +30,8 @@ input {
     margin: 0 0 .5em;
 	padding: 1em;
 	border: 2px solid black;
+    border-radius: 42px;
+    background-color: white;
 }
 #tasks a {
     margin-right: 0.5em;
