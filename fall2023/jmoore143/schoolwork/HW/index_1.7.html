@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Name: Jordan Moore -->
+<!-- Course: ITSE 1311.001 -->
+<!-- Date: oct 7 2023-->
+<!-- Topic: Forms -->
+<!-- Assignment: homework part 1.16 -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div form {
+            font-size: 2em;
+        }
+
+        input {
+            font-size: 1em;
+        }
+    </style>
+</head>
+
+<body>
+
+    <head>
+        <h1>Forms</h1>
+        <hr>
+    </head>
+    <h2>detailed form example</h2>
+    <!-- start of form  -->
+    <div>
+        <form action="#" method="GET" name="inputForm" id="inputForm">
+            <fieldset>
+                <legend>Personal Data</legend>
+                <label for="f_name">First Name:</label>
+                <input type="text" id="f_name" name="f_name" placeholder="First Name" autofocus>
+                <br>
+                <label for="l_name">Last Name:</label>
+                <input type="text" name="l_name" id="l_name" placeholder="Last Name">
+                <br>
+                <label for="age">Age:</label>
+                <input type="text" name="age" id="age">
+                <br>
+                <!-- <label for="password">Password:</label> -->
+                <label for="password">Password:</label>
+                <input type="password" name="password" id="password">
+                <br>
+                <input type="submit" value="Submit Form">
+                <input type="reset" value="Reset Form">
+                <!-- <input type="button" value="Submit Button" form="inputForm" disabled> -->
+                <!-- <button></button> -->
+
+            </fieldset>
+        </form>
+    </div>
+</body>
+
+</html>
