@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Parser</title>
+
+    <link rel="stylesheet" href="/fall2023/jmoore143/css/reset.css">
+    <link rel="stylesheet" href="/fall2023/jmoore143/css/themes.css">
+    <link rel="stylesheet" href="/fall2023/jmoore143/css/ember fonts.css">
+    <link rel="stylesheet" href="/fall2023/jmoore143/css/global.css">
+
+    <script src="/fall2023/jmoore143/js/jstools.js"></script>
+    <script src="/fall2023/jmoore143/js/global.js"></script>
+
+    <style>
+        textarea {
+            width: calc(100% - 40px);
+            height: 300px;
+            font-size: 2rem;
+            background-color: var(--secondary);
+            border: none;
+            color: var(--light-text);
+            padding: 20px;
+            resize: none;
+        }
+
+        #output table tr td {
+            border: 1px solid white;
+            vertical-align: middle;
+        }
+
+        #output table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        #output table table td {
+            border-left: none;
+            border-right: none;
+            padding: 5px;
+        }
+
+        #output table table tr:first-child td {
+            border-top: none;
+            font-weight: bolder;
+        }
+
+        #output>table>tr>td>div {
+            padding: 10px;
+            word-break:break-all;
+        }
+
+        #output>table>tr>td:nth-child(even) {
+            border-left: none;
+        }
+
+        #output>table>tr>td:nth-child(even) div:not(:empty),
+        #output>table>tr:nth-child(5)>td:nth-child(3) div:not(:empty) {
+            background-color: green;
+            padding: 5px;
+            margin: 10px;
+        }
+
+        #output>table>tr>td:nth-child(odd):not(:last-child) {
+            border-right: none;
+        }
+
+        #output table tr td:nth-child(odd) div {
+            word-break: unset;
+        }
+
+        #output table tr:nth-child(5) td:nth-child(3) div tr:not(:nth-child(1)) td:nth-child(2) {
+            word-break: break-all;
+        }
+
+        #output table table td:nth-child(1) div {
+            margin-right: 30px;
+        }
+
+        main>div {
+            width: 1200px;
+        }
+    </style>
+</head>
+
+<body class="dark">
+    <main class="hide-scroll">
+        <div>
+            <textarea class="hide-scroll" id="input" placeholder="URL input" autofocus></textarea>
+            <br><br><br><br><br>
+        </div>
+        <div id="output">
+
+        </div>
+    </main>
+    <script>
+        let input = document.getElementById("input");
+        input.setAttribute("value", window.location.href);
+        displayOutput();
+        input.oninput = displayOutput;
+        function displayOutput() {
+            console.log("displaying output");
+            let val = input.value;
+            let output = document.getElementById("output");
+            output.firstChild?.remove();
+            let data;
+            try {
+                data = new URL(val);
+            } catch (err) {
+                data = new URL(window.location.href);
+            }
+            var search = new URLSearchParams(data.search);
+
+            output.add(
+                createElement("table").add(
+                    createElement("tr").add(
+                        createElement("td", { "rowSpan": "3" }).add(
+                            createElement("div", { "innerHTML": "origin" }),
+                        ),
+                        createElement("td", { "rowSpan": "3" }).add(
+                            createElement("div", { "innerHTML": data.origin }),
+                        ),
+                        createElement("td").add(
+                            createElement("div", { "innerHTML": "protocol" }),
+                        ),
+                        createElement("td").add(
+                            createElement("div", { "innerHTML": data.protocol }),
+                        ),
+                    ),
+                    createElement("tr").add(
+                        createElement("td", { "rowSpan": "2" }).add(
+                            createElement("div", { "innerHTML": "host" }),
+                        ),
+                        createElement("td", { "rowSpan": "2" }).add(
+                            createElement("div", { "innerHTML": data.host }),
+                        ),
+                        createElement("td").add(
+                            createElement("div", { "innerHTML": "hostname" }),
+                        ),
+                        createElement("td").add(
+                            createElement("div", { "innerHTML": data.hostname }),
+                        ),
+                    ),
+                    createElement("tr").add(
+                        createElement("td").add(
+                            createElement("div", { "innerHTML": "port" }),
+                        ),
+                        createElement("td").add(
+                            createElement("div", { "innerHTML": data.port }),
+                        ),
+                    ),
+                    createElement("tr").add(
+                        createElement("td").add(
+                            createElement("div", { "innerHTML": "pathname" }),
+                        ),
+                        createElement("td").add(
+                            createElement("div", { "innerHTML": data.pathname }),
+                        ),
+                    ),
+                    createElement("tr").add(
+                        createElement("td").add(
+                            createElement("div", { "innerHTML": "search" }),
+                        ),
+                        createElement("td").add(
+                            createElement("div", { "innerHTML": data.search }),
+                        ),
+                        createElement("td", { colSpan: "4" }).add(
+                            createElement("div").add(
+                                data.search.length > 0 ? createElement("table").add(
+                                    createElement("tr").add(
+                                        createElement("td", { innerHTML: "Key" }),
+                                        createElement("td", { innerHTML: "Value" })
+                                    ),
+                                    ...[...search.keys()].map(e => createElement("tr").add(
+                                        createElement("td").add(
+                                            createElement("div", { innerHTML: e })
+                                        ),
+                                        createElement("td").add(
+                                            createElement("div", { innerHTML: search.get(e) })
+                                        )
+                                    )),
+                                ) : ""
+                            )
+                        ),
+                    ),
+                    createElement("tr").add(
+                        createElement("td").add(
+                            createElement("div", { "innerHTML": "Hash" }),
+                        ),
+                        createElement("td").add(
+                            createElement("div", { "innerHTML": data.hash }),
+                        )
+                    )
+                )
+            );
+        }
+    </script>
+</body>
+
+</html>
