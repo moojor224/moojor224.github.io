@@ -49,7 +49,7 @@
 
         #output>table>tr>td>div {
             padding: 10px;
-            word-break:break-all;
+            word-break: break-all;
         }
 
         #output>table>tr>td:nth-child(even) {
@@ -58,7 +58,7 @@
 
         #output>table>tr>td:nth-child(even) div:not(:empty),
         #output>table>tr:nth-child(5)>td:nth-child(3) div:not(:empty) {
-            background-color: green;
+            /* background-color: green; */
             padding: 5px;
             margin: 10px;
         }
@@ -68,7 +68,7 @@
         }
 
         #output table tr td:nth-child(odd) div {
-            word-break: unset;
+            word-break: keep-all;
         }
 
         #output table tr:nth-child(5) td:nth-child(3) div tr:not(:nth-child(1)) td:nth-child(2) {
@@ -80,7 +80,21 @@
         }
 
         main>div {
-            width: 1200px;
+            width: 100%;
+        }
+
+        /* @media only screen and (max-width: 800px) {
+            .unwrap {
+                word-break: keep-all !important;
+                word-wrap: normal;
+            }
+        } */
+
+        @media only screen and (min-width: 800px) {
+            .unwrap {
+                word-break: keep-all !important;
+                word-wrap: normal;
+            }
         }
     </style>
 </head>
@@ -126,7 +140,7 @@
                             createElement("div", { "innerHTML": "protocol" }),
                         ),
                         createElement("td").add(
-                            createElement("div", { "innerHTML": data.protocol }),
+                            createElement("div", { "innerHTML": data.protocol, className: "unwrap" }),
                         ),
                     ),
                     createElement("tr").add(
@@ -134,13 +148,13 @@
                             createElement("div", { "innerHTML": "host" }),
                         ),
                         createElement("td", { "rowSpan": "2" }).add(
-                            createElement("div", { "innerHTML": data.host }),
+                            createElement("div", { "innerHTML": data.host, className: "unwrap" }),
                         ),
                         createElement("td").add(
                             createElement("div", { "innerHTML": "hostname" }),
                         ),
                         createElement("td").add(
-                            createElement("div", { "innerHTML": data.hostname }),
+                            createElement("div", { "innerHTML": data.hostname, className: "unwrap" }),
                         ),
                     ),
                     createElement("tr").add(
@@ -148,7 +162,7 @@
                             createElement("div", { "innerHTML": "port" }),
                         ),
                         createElement("td").add(
-                            createElement("div", { "innerHTML": data.port }),
+                            createElement("div", { "innerHTML": data.port, className: "unwrap" }),
                         ),
                     ),
                     createElement("tr").add(

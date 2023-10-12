@@ -1,10 +1,13 @@
+
+// <!-- copyright Jordan Moore (jmoore143) -->
 function downloadDebug(name) {
     console.debug(`%c${name} %cnot included. importing...`, "font-style: bold;font-size:20px;");
 }
 
 function loadScripts() {
-    loadNav();
     setTheme();
+    loadNav();
+    loadFooter();
 }
 async function loadNav() {
     console.debug("getting nav");
@@ -38,11 +41,17 @@ async function loadNav() {
         });
     });
 }
+
+async function loadFooter(){
+
+}
+
 function setTheme() {
     if (!document.body.classList.contains("dark")) {
-        // document.body.classList.add("dark");
+        document.body.classList.add("dark");
     }
 }
+
 function makeTOC(...args) {
     let toc = createElement("div", {
         id: "toc_container"

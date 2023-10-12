@@ -1,3 +1,4 @@
+# <!-- copyright Jordan Moore (jmoore143) -->
 import neopixel
 import math
 from machine import Pin

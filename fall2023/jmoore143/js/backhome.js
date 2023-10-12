@@ -1,3 +1,4 @@
+// <!-- copyright Jordan Moore (jmoore143) -->
 window.onload = function () {
     let a = document.createElement("a");
     // a.href = "/fall2023/jmoore143/";

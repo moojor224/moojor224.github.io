@@ -1,3 +1,4 @@
+// copyright Jordan Moore (jmoore143)
 (function () {
     class Project {
         steps = [];

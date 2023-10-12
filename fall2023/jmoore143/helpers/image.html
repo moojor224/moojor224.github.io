@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- copyright Jordan Moore (jmoore143) -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body>div{
+            width: 500px;
+            height: 500px;
+            position: relative;
+        }
+        body>div>div {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0px;
+            z-index: -1;
+            background-color: #0005;
+            color: white;
+            font-size: 2rem;
+            vertical-align: middle;
+            text-align: center;
+        }
+        body>div>img{
+            width: 100%;
+            height: 100%;
+            background-color: red;
+        }
+        body>div>img:hover+div,
+        body>div>div:hover{
+            z-index:2;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <img src="../schoolwork/graphics/1.jpg" alt="">
+        <div>here's some text</div>
+    </div>
+</body>
+</html>

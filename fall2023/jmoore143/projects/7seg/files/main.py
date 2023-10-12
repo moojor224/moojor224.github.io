@@ -1,3 +1,4 @@
+# <!-- copyright Jordan Moore (jmoore143) -->
 import time
 from machine import Pin, I2C
 from segment_display import display

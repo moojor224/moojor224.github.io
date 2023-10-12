@@ -1,3 +1,5 @@
+// <!-- copyright Jordan Moore (jmoore143) -->
+
 function createElement(tag = "span", data = {}) {
     tag = typeof(tag) === "string" ? document.createElement(tag) : tag;
     Object.keys(data).forEach(e => {
