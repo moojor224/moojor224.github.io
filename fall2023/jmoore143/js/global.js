@@ -43,7 +43,26 @@ async function loadNav() {
 }
 
 async function loadFooter(){
+    console.debug("getting footer");
+    await fetch("/fall2023/jmoore143/helpers/footer.html").then(r => {
+        r.text().then(text => {
+            let footer;
+            if(!(footer = document.querySelector("footer"))){
+                footer = document.createElement("footer");
+                document.body.append(footer);
+            }
+            footer.innerHTML = text;
+            console.log(footer);
+            let scr = footer.querySelector("script");
+            let nw = document.createElement("script");
+            nw.innerHTML = scr.innerHTML;
+            scr.onload = function () {
 
+            }
+            scr.async = true;
+            footer.insertBefore(nw, scr);
+        });
+    });
 }
 
 function setTheme() {

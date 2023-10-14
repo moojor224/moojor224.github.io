@@ -1,5 +1,5 @@
 const imageArray = [
-    "./1.jpg", "./2.jpg", "./3.jpg", "./4.jpg", "./5.jpg", "./6.jpg", "./6.jpg"];
+    "./1.jpg", "./2.jpg", "./3.jpg", "./4.jpg", "./5.jpg", "./6.jpg", "./7.jpg"];
 
 const image = document.querySelector("img");
 const button = document.querySelector("button");
@@ -10,10 +10,10 @@ window.onload = () => generateRandomPicture(imageArray);
 button.addEventListener("click", () => generateRandomPicture(imageArray));
 
 function generateRandomPicture(array) {
-    // console.log(this.event)
-    newRandom = Math.random()
+    console.log(this.event)
+    newRandom = Math.random();
 
-    console.log("------------------")
+    console.log("------------------");
     // console.log("newRandom:", newRandom)
     // console.log("array.length:", array.length)
     // console.log("newRandom * array.length ", newRandom * array.length)
