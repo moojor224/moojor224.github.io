@@ -259,8 +259,9 @@
 
     // var school = new NavItem("Schoolwork", "/fall2023/jmoore143/schoolwork");
     var school = new NavItem("Schoolwork", "#");
-    var daily = new NavItem("Daily Assignments", "/fall2023/jmoore143/schoolwork/daily");
-    let homework = new NavItem("Homework Assignments", "/fall2023/jmoore143/schoolwork/HW");
+    var daily = new NavItem("Daily Assignments", "#");
+    let homework = new NavItem("Homework Assignments", "#");
+    let bits = new NavItem("Random Code Bits", "#");
 
     daily.add(
         new NavItem("Day 1", "/fall2023/jmoore143/schoolwork/daily/day_01/day_1.html"),
@@ -282,11 +283,11 @@
         new NavItem("index_1.6.html", "/fall2023/jmoore143/schoolwork/HW/index_1.6.html"),
         new NavItem("index_1.7.html", "/fall2023/jmoore143/schoolwork/HW/index_1.7.html"),
         new NavItem("index_1.8.html", "/fall2023/jmoore143/schoolwork/HW/index_1.8.html"),
+        new NavItem("index_1.8a.html", "/fall2023/jmoore143/schoolwork/HW/index_1.8a.html"),
     );
 
     school.add(daily, homework);
 
-    let bits = new NavItem("Random Code Bits", "#");
     bits.add(
         new NavItem("URL Parser", "/fall2023/jmoore143/javascript%20demos/url_parser.html"),
         new NavItem("Image Text on Hover", "/fall2023/jmoore143/helpers/image.html"),
