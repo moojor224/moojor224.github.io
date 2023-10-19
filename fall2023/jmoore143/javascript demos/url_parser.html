@@ -16,7 +16,8 @@
 
     <style>
         textarea {
-            width: calc(100% - 40px);
+            width: calc(100% - 50px);
+            margin-left: 5px;
             height: 300px;
             font-size: 2rem;
             background-color: var(--secondary);
@@ -83,6 +84,14 @@
             width: 100%;
         }
 
+        #output>table>tr>td:nth-child(2) {
+            width: 60%;
+        }
+
+        #output>table>tr:nth-child(3)>td:nth-child(3) table div {
+            word-break: break-all;
+        }
+
         /* @media only screen and (max-width: 800px) {
             .unwrap {
                 word-break: keep-all !important;
@@ -125,7 +134,14 @@
             } catch (err) {
                 data = new URL(window.location.href);
             }
-            var search = new URLSearchParams(data.search);
+            var search = new URLSearchParams(data.search).entries();
+
+
+            let done = false, value = "", arr = [];
+            while (({ done, value } = search.next(), !done)) {
+                arr.push(value);
+            }
+            // console.log(arr.map(e=>e.join(": ")).join("\n"));
 
             output.add(
                 createElement("table").add(
@@ -187,14 +203,20 @@
                                         createElement("td", { innerHTML: "Key" }),
                                         createElement("td", { innerHTML: "Value" })
                                     ),
-                                    ...[...search.keys()].map(e => createElement("tr").add(
+                                    ...arr.map(kv => createElement("tr").add(
                                         createElement("td").add(
-                                            createElement("div", { innerHTML: e })
+                                            createElement("div", { innerHTML: kv[0] })
                                         ),
                                         createElement("td").add(
-                                            createElement("div", { innerHTML: search.get(e) })
+                                            createElement("div", {
+                                                innerHTML: kv[1],
+                                                style: {
+                                                    wordBreak: "break-all",
+                                                    // width: "50%",
+                                                }
+                                            })
                                         )
-                                    )),
+                                    ))
                                 ) : ""
                             )
                         ),
