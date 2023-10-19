@@ -98,12 +98,21 @@
                 word-wrap: normal;
             }
         } */
+        .unwrap {
+            word-break: keep-all !important;
+            word-wrap: normal;
+        }
 
-        @media only screen and (min-width: 800px) {
-            .unwrap {
-                word-break: keep-all !important;
-                word-wrap: normal;
+        @media only screen and (max-width: 800px) {
+
+
+            main {
+                overflow-x: scroll;
+                width: 800px;
+                display: block;
             }
+
+            textarea {}
         }
     </style>
 </head>
