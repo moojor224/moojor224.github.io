@@ -154,14 +154,24 @@
         max-width: 100%;
     }
 </style>
+
 <script>
     class Nav {
         items = [];
         constructor() {
 
         }
-        addItem(text, href) {
-            this.items.push(new NavItem(text, href));
+        gitInject() {
+            if (window.location.hostname !== "moojor224.github.io") {
+                this.addGit();
+            }
+        }
+        addGit() {
+            this.add(new NavItem(
+                "Click here to view the full page on GitHub! <i class='fa-brands fa-github'></i>",
+                "https://moojor224.github.io" + window.location.pathname,
+                "_blank"
+            ));
         }
         add(...item) {
             item.forEach(i => {
@@ -180,7 +190,8 @@
                         createElement("div", { style: { position: "relative" } }).add(
                             createElement("a", {
                                 innerHTML: item.text,
-                                href: item.href
+                                href: item.href,
+                                target: item.target,
                             }),
                             item.items.length > 0 ? createElement("ul", {
                                 classList: "dropdown-menu",
@@ -200,13 +211,12 @@
     }
     class NavItem {
         items = [];
-        constructor(text, href) {
+        constructor(text, href, target = "") {
             this.text = text;
             this.href = href;
+            this.target = target;
         }
-        addItem(text, href) {
-            this.items.push(new NavItem(text, href));
-        }
+
         add(...item) {
             item.forEach(i => {
                 this.items.push(i);
@@ -261,7 +271,7 @@
     var school = new NavItem("Schoolwork", "#");
     var daily = new NavItem("Daily Assignments", "#");
     let homework = new NavItem("Homework Assignments", "#");
-    let bits = new NavItem("Random Code Bits", "#");
+    let experiments = new NavItem("Javascript Experiments", "#");
 
     daily.add(
         new NavItem("Day 1", "/fall2023/jmoore143/schoolwork/daily/day_01/day_1.html"),
@@ -269,7 +279,11 @@
         new NavItem("Day 3", "/fall2023/jmoore143/schoolwork/daily/day_03/day_3.html"),
         new NavItem("Day 4", "/fall2023/jmoore143/schoolwork/daily/day_04/day_4.html"),
         new NavItem("Day 5", "/fall2023/jmoore143/schoolwork/daily/day_05/"),
-        new NavItem("Day 6", "/fall2023/jmoore143/schoolwork/daily/day_06/day_6.html"),
+        (() => {
+            let day6 = new NavItem("Day 6", "/fall2023/jmoore143/schoolwork/daily/day_06/day_6.html");
+            day6.add(new NavItem("Weather API", "/fall2023/jmoore143/schoolwork/daily/day_06/weather"));
+            return day6;
+        })(),
         new NavItem("Day 7", "/fall2023/jmoore143/schoolwork/daily/day_07"),
         new NavItem("Day 8", "/fall2023/jmoore143/schoolwork/daily/day_08"),
     );
@@ -288,17 +302,18 @@
 
     school.add(daily, homework);
 
-    bits.add(
+    experiments.add(
         new NavItem("URL Parser", "/fall2023/jmoore143/javascript%20demos/url_parser.html"),
         new NavItem("Image Text on Hover", "/fall2023/jmoore143/helpers/image.html"),
     );
 
+    nav.add(new Spacer());
+    nav.gitInject();
     nav.add(
-        new Spacer(),
         new NavItem("Home", "/fall2023/jmoore143"),
         projects,
         school,
-        bits,
+        experiments,
     );
     buildNav();
 </script>
