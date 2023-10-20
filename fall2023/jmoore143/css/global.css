@@ -1,4 +1,9 @@
 /* <!-- copyright Jordan Moore (jmoore143) --> */
+
+/* @import url("/fall2023/jmoore143/css/reset.css"); */
+@import url("/fall2023/jmoore143/css/themes.css");
+@import url("/fall2023/jmoore143/css/fontawesome/css/all.css");
+
 :root {
     --light-text: #fff;
     --dark-text: #000;
