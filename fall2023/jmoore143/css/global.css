@@ -3,6 +3,8 @@
 /* @import url("/fall2023/jmoore143/css/reset.css"); */
 @import url("/fall2023/jmoore143/css/themes.css");
 @import url("/fall2023/jmoore143/css/fontawesome/css/all.css");
+@import url("/fall2023/jmoore143/css/ember\ fonts.css");
+
 
 :root {
     --light-text: #fff;
@@ -44,6 +46,8 @@ main {
     margin-left: 10%;
     margin-right: 10%;
     padding-bottom: 100px;
+    padding-top: 80px;
+    min-height: 100vh;
     /* width: 80%; */
     overflow-y: auto;
     width: 80%;
@@ -52,4 +56,10 @@ main {
 
 main>div {
     width: 800px;
+}
+
+img[data-src] {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100px;
 }
