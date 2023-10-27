@@ -8,7 +8,15 @@ function loadScripts() {
     setTheme();
     loadNav();
     loadFooter();
+    // loadImages();
 }
+
+function setTheme() {
+    if (!document.body.classList.contains("dark")) {
+        document.body.classList.add("dark");
+    }
+}
+
 async function loadNav() {
     console.debug("getting nav");
     await fetch("/fall2023/jmoore143/helpers/nav.html").then(r => {
@@ -42,12 +50,12 @@ async function loadNav() {
     });
 }
 
-async function loadFooter(){
+async function loadFooter() {
     console.debug("getting footer");
     await fetch("/fall2023/jmoore143/helpers/footer.html").then(r => {
         r.text().then(text => {
             let footer;
-            if(!(footer = document.querySelector("footer"))){
+            if (!(footer = document.querySelector("footer"))) {
                 footer = document.createElement("footer");
                 document.body.append(footer);
             }
@@ -65,20 +73,23 @@ async function loadFooter(){
     });
 }
 
-function setTheme() {
-    if (!document.body.classList.contains("dark")) {
-        document.body.classList.add("dark");
-    }
+function loadImages() {
+    window.setInterval(function () {
+        [...document.querySelectorAll("img[data-src]")].forEach(i => {
+            i.src = i.dataset.src;
+            delete i.dataset.src;
+        });
+    }, 1000);
 }
 
 function makeTOC(...args) {
     let toc = createElement("div", {
         id: "toc_container"
     });
-    function recurse(data){
-        if(Array.isArray(data)){
+    function recurse(data) {
+        if (Array.isArray(data)) {
             return createElement("ul").add(
-                ...data.map(e=>recurse(e))
+                ...data.map(e => recurse(e))
             );
         }
         return createElement("li").add(
@@ -89,7 +100,7 @@ function makeTOC(...args) {
         );
     }
     let ul = createElement("ul");
-    ul.add(...args.map(e=>recurse(e)));
+    ul.add(...args.map(e => recurse(e)));
     toc.add(ul);
     return toc;
 }
