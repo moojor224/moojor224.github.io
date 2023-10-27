@@ -18,7 +18,6 @@
                 return [].concat(...arr.map(n => [n, thing()])).slice(0, -1);
             }
             var res = interleave(this.steps.map(e => e.render()), (e => createElement("hr")));
-            console.log(res);
             return [...res, createElement("hr")];
         }
         addMaterial(amount, name, links = "#") {
@@ -90,12 +89,10 @@
 
             div.add(this.anchor("Steps"));
             var res = this.renderSteps();
-            console.log(res);
             div.add(...res);
 
             div.add(this.anchor("Files"));
             div.add(filesDiv.add(ol.add(...this.files.map(e => e.render()))));
-            console.log(div.children);
             return div;
         }
         makeTOC() {
@@ -182,7 +179,6 @@
                 showSlides(slideIndex = n, elem);
             }
             function showSlides(n, elem) {
-                console.log(elem);
                 let i;
                 let slides = elem.querySelectorAll(".slide");
                 if (n > slides.length) slideIndex = 1;
@@ -193,7 +189,7 @@
                 slides[slideIndex - 1].style.display = "block";
                 elem.querySelector(".numbertext").innerHTML = `${slideIndex}/${elem.querySelectorAll("img").length}`;
             }
-            function imgModal(l){
+            function imgModal(l) {
                 document.body.append(createElement("div", {
                     style: {
                         position: "absolute",
@@ -211,8 +207,11 @@
                         classList: "slide"
                     }).add(
                         createElement("img", {
-                            src: i,
-                            onclick: e=>imgModal(i)
+                            dataset: {
+                                src: i
+                            },
+                            src: "/fall2023/jmoore143/res/loading.gif",
+                            onclick: e => imgModal(i)
                         })
                     )),
                     createElement("div", {
