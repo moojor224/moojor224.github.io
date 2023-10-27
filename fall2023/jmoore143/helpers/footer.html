@@ -1,7 +1,7 @@
 <style>
     footer {
         width: 100%;
-        height: 200px;
+        min-height: 200px;
         bottom: 0px;
         background-color: var(--secondary);
         display: flex;
@@ -10,31 +10,29 @@
     }
 
     footer>div {
-        margin-top: 20px;
-        width: 130px;
+        margin: 20px 20px 0px;
+        /* width: 130px; */
     }
 
     footer li {
         margin: 15px 0px;
-        font-size: 1.25em;
+        font-size: 1em;
     }
 
-    footer h2{
+    footer h2 {
+        margin: 0px;
         font-weight: bold;
     }
 
     footer li,
     footer ul {
+        padding-left: 0;
         list-style: none;
     }
 
     footer li>i {
         float: right;
-    }
-
-    main {
-        /* margin-bottom: 800px !important; */
-        min-height: 100vh;
+        margin-left: 20px;
     }
 </style>
 <!-- copyright Jordan Moore (jmoore143) -->
@@ -43,9 +41,12 @@
         items = [];
         sections = {};
         constructor(...sections) {
-            sections.forEach(k => this.sections[k] = []);
+            sections.forEach(k => {
+                this.sections[k] = [];
+            });
         }
         add(item, section) {
+            console.log(section);
             this.sections[section].push(item);
         }
 
@@ -78,6 +79,7 @@
             let i = document.createElement("i");
             i.classList = `fa-brands fa-${this.icon}`;
             a.href = this.url;
+            a.target = "_blank";
             a.innerHTML = this.text;
             li.append(a);
             li.append(i);
@@ -93,10 +95,13 @@
         console.log("rendered footer:", render);
         ft.replaceWith(render);
     }
-    let foot = new Footer("Socials");
-    foot.add(new FooterItem("Discord", "https://discord.com", "discord"), "Socials");
-    foot.add(new FooterItem("Twitter", "https://twitter.com", "twitter"), "Socials");
-    foot.add(new FooterItem("GitHub", "https://github.com/moojor224", "github"), "Socials");
-    foot.add(new FooterItem("Reddit", "https://reddit.com/", "reddit"), "Socials");
+    let s = "Socials", o = "Other Links";
+    let foot = new Footer(s, o);
+    foot.add(new FooterItem("Discord", "https://discord.com", "discord"), s);
+    foot.add(new FooterItem("Twitter", "https://twitter.com", "twitter"), s);
+    foot.add(new FooterItem("GitHub", "https://github.com/moojor224", "github"), s);
+    foot.add(new FooterItem("Reddit", "https://reddit.com/", "reddit"), s);
+
+    foot.add(new FooterItem("Website Source Code", "https://github.com/moojor224/moojor224.github.io", "github"), o);
     buildFooter();
 </script>
