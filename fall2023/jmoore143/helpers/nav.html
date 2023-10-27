@@ -5,10 +5,6 @@
         top: 0px;
     }
 
-    main {
-        padding-top: 50px;
-    }
-
     nav {
         display: flex;
         justify-content: flex-start;
@@ -199,7 +195,7 @@
                                     position: "absolute",
                                     inset: "0px auto auto initial",
                                     margin: "0px",
-                                    top: "calc(150% + 2px)",
+                                    top: "150%",
                                 }
                             }).add(...item.items.map(e => e.render())) : ""
                         )
@@ -286,6 +282,8 @@
         })(),
         new NavItem("Day 7", "/fall2023/jmoore143/schoolwork/daily/day_07"),
         new NavItem("Day 8", "/fall2023/jmoore143/schoolwork/daily/day_08"),
+        new NavItem("Day 9", "/fall2023/jmoore143/schoolwork/daily/day_09/day09.html"),
+        new NavItem("Day 10", "/fall2023/jmoore143/schoolwork/daily/day_10"),
     );
 
     homework.add(
