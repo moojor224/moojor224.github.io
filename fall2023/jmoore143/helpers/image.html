@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <!-- copyright Jordan Moore (jmoore143) -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        body>div{
+        div.card {
             width: 500px;
             height: 500px;
             position: relative;
         }
-        body>div>div {
+
+        div.card>div {
             position: absolute;
             width: 100%;
             height: 100%;
@@ -23,21 +25,30 @@
             vertical-align: middle;
             text-align: center;
         }
-        body>div>img{
+
+        div.card>img {
             width: 100%;
             height: 100%;
-            background-color: red;
+            background-color: white;
         }
-        body>div>img:hover+div,
-        body>div>div:hover{
-            z-index:2;
+
+        div.card>img:hover+div,
+        div.card>div:hover {
+            z-index: 2;
         }
     </style>
+    <script src="/fall2023/jmoore143/js/global.js"></script>
 </head>
+
 <body>
-    <div>
+    <div class="card">
         <img src="../schoolwork/graphics/1.jpg" alt="">
         <div>here's some text</div>
     </div>
+    <div class="card">
+        <img data-src="../schoolwork/graphics/2.jpg" src="/fall2023/jmoore143/res/loading.gif" alt="">
+        <div>some more text</div>
+    </div>
 </body>
+
 </html>
