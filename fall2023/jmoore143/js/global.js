@@ -5,10 +5,11 @@ function downloadDebug(name) {
 }
 
 function loadScripts() {
-    setTheme();
-    loadNav();
-    loadFooter();
-    // loadImages();
+    [setTheme, loadNav, loadFooter, loadImages].forEach(e => {
+        try {
+            e();
+        } catch (err) {}
+    });
 }
 
 function setTheme() {
