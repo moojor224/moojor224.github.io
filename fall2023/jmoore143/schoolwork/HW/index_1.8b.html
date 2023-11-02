@@ -1,0 +1,50 @@
+<!-- Copyright Jordan Moore (jmoore143) -->
+<!DOCTYPE html>
+<html lang="en">
+<!-- Name: Jordan Moore -->
+<!-- Course: ITSE 1311.001 -->
+<!-- Date: November 01, 2023-->
+<!-- Assignment: Part 1.40 - JavaScript to output input range type values -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imput Range Control</title>
+    <script>
+        // window.onload = function () {
+        //     document.getElementById("range_1").oninput = function (event) {
+        //         document.getElementById("output").innerHTML = event.target.value;
+        //     }
+        // }
+        function updateRange(val) {
+            document.getElementById("output").value = val;
+        }
+    </script>
+    <style>
+        input {
+            font-size: 4em;
+            background-color: lightgray;
+        }
+        input[type="range"] {
+            width: 50%;
+        }
+
+        
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>input Range Control</h1>
+        <hr>
+    </header>
+    <br>
+    <input type="range" name="a_range" id="range_1" min="0" max="1000" step="20" value="200"
+        oninput="updateRange(this.value)">
+        <!-- the "oninput" event will trigger when you slide the input, whereas "onchange" will only triger when you unclick the mouse -->
+    <br>
+    <br>
+    <input type="text" size="4" id="output" placeholder="output" disabled="true" style="color: black">
+</body>
+
+</html>
