@@ -75,14 +75,12 @@ async function loadFooter() {
 }
 
 function loadImages() {
-    window.onload = function(){
-        window.setInterval(function () {
-            [...document.querySelectorAll("img[data-src]")].forEach(i => {
-                i.src = i.dataset.src;
-                delete i.dataset.src;
-            });
-        }, 100);
-    }
+    window.setInterval(function () {
+        [...document.querySelectorAll("img[data-src]")].forEach(i => {
+            i.src = i.dataset.src;
+            delete i.dataset.src;
+        });
+    }, 100);
 }
 
 function makeTOC(...args) {
