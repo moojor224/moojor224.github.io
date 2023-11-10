@@ -1,0 +1,76 @@
+/* ---------------------------- First Part ---------------------------- */
+
+.parent {
+    background-color: blue;
+    height: 400px;
+    width: 400px;
+}
+
+.child {
+    background-color: rgb(238, 17, 17);
+    height: 50%;
+    width: 50%;
+    transition: transform 1s;
+    /* note when we take off transform and color changes */
+    /* transition : transform 1s linear; */
+    /* transition : transform 1s ease-in-out; */
+    transition : transform 1s cubic-bezier(0.18, 0.19, 0.58, 1.24)
+    /* add delay */
+    /* transition : transform 1s cubic-bezier(0,-0.66, 1, 1.89) 2s; */
+    /* now simplify this */
+    /* transition : transform 1s ease-out;  */
+    /* then take it out when we fix up our animation */
+    /* JAC note: adding animation to this CSS */
+    /* animation : left-to-right 1s ease-out forwards infinite alternate; */
+    /* JAC: add a pause event handler in the hover state */
+
+}
+
+.parent:hover .child {
+    /* .parent:hover .child { */
+    background-color: green;
+    /* height: 20%; */
+    transform: translateX(100%);
+    /* transform: translateY(100%); */
+    /* transistion or animation */
+    /* transition : transform 5s; */
+    /* animation name duration timing funcition */
+    /* animation : left-to-right 1s ease-out; */
+    /* JAC: add keyframes below */
+    animation: left-to-right 1s ease-out;
+    /* animation : left-to-right 1s ease-out forwards; */
+    /* animation : left-to-right 1s ease-out forwards 3; */
+    /* JAC: go back and forth */
+    /* animation : left-to-right 1s ease-out forwards 3 alternate; */
+    /* JAC: Add a delay */
+    /* animation : left-to-right 1s ease-out forwards 3 alternate 3s; */
+    /* JAC: do forever */
+    /* animation : left-to-right 1s ease-out forwards infinite alternate; */
+    /* move this up to the child so it always happens */
+    /* animation-play-state: paused; */
+}
+
+@keyframes left-to-right {
+    0% {
+        background-color: red;
+        transform: translateX(0);
+    }
+
+    33% {
+        transform: translateY(100%);
+    }
+
+    50% {
+        background-color: yellow;
+        width: 30%;
+    }
+
+    66% {
+        transform: translateX(100%) translateY(100%);
+    }
+
+    100% {
+        transform: translateX(100%);
+        background-color: green;
+    }
+}
