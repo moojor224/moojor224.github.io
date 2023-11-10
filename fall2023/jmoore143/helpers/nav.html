@@ -207,11 +207,12 @@
             this.text = text;
             this.href = href;
             this.target = target;
+            return this;
         }
 
-        add(...item) {
-            item.forEach(i => {
-                this.items.push(i);
+        add(...items) {
+            items.forEach(item => {
+                this.items.push(item);
             });
         }
         render() {
@@ -282,6 +283,7 @@
         new NavItem("Day 10", "/fall2023/jmoore143/schoolwork/daily/day_10"),
         new NavItem("Day 11_01", "/fall2023/jmoore143/schoolwork/daily/day_11_01"),
         new NavItem("Day 11_02", "/fall2023/jmoore143/schoolwork/daily/day_11_02"),
+        new NavItem("Day 12", "/fall2023/jmoore143/schoolwork/daily/day_12"),
     );
 
     homework.add(
