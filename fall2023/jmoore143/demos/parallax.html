@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        /* parallax "viewport" */
+        .parallax {
+            height: 100vh;
+
+            overflow-x: hidden;
+            overflow-y: auto;
+
+            perspective: 1px;
+        }
+
+        .parallax-layer {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+
+        .layer1 {
+            transform: translateZ(0);
+        }
+
+        .layer2 {
+            transform: translateZ(-1px);
+        }
+
+        .layer3 {
+            transform: translateZ(-2px);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="parallax">
+        <!--layer 1 will be the bottom layer, layer 3 will be the top layer-->
+        <div class="parallax-layer layer1">LAYER 1</div>
+        <div class="parallax-layer layer2">LAYER 2</div>
+        <div class="parallax-layer layer3">LAYER 3</div>
+    </div>
+</body>
+
+</html>
