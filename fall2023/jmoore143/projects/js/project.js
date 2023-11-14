@@ -190,16 +190,35 @@
                 elem.querySelector(".numbertext").innerHTML = `${slideIndex}/${elem.querySelectorAll("img").length}`;
             }
             function imgModal(l) {
-                document.body.append(createElement("div", {
+                document.body.add(createElement("div", {
                     style: {
-                        position: "absolute",
+                        width: "100vw",
+                        height: "100vh",
+                        position: "fixed",
                         top: "0px",
                         left: "0px",
-                        width: "100%",
-                        height: "100%",
-                        backgroundColor: "#0003"
+                        backgroundColor: "#0007",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center"
+                    },
+                    onclick: function (event) {
+                        if (event.target == this) this.remove();
+                    },
+                    onwheel: (e) => e.preventDefault(),
+
+                }).add(createElement("img", {
+                    src: l,
+                    style: {
+                        maxHeight: "90%;",
+                        maxWidth: "90%",
                     }
-                }))
+                })))
+            }
+            function getSmall(url) {
+                url = url.split("/");
+                url.push("small", url.pop());
+                return url.join("/");
             }
             pictures.add(
                 createElement("div", { classList: "slideshow-container" }).add(
@@ -208,7 +227,7 @@
                     }).add(
                         createElement("img", {
                             dataset: {
-                                src: i
+                                src: getSmall(i)
                             },
                             src: "/fall2023/jmoore143/res/loading.gif",
                             onclick: e => imgModal(i)
