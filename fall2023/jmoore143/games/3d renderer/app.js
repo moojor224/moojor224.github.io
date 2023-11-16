@@ -13,18 +13,23 @@ Number.prototype.wrapRange = function (min, max) {
     return val;
 }
 /*
-let angle = 0, dx = 0, dy = 0, keys = {}, lookamount = 5, moveamount = 5;
-function moveLateral(amount) {
-    let x = Math.cos((angle) * Math.PI / 180) * amount;
-    let y = Math.sin((angle) * Math.PI / 180) * amount;
+let angle = 0, dx = 0, dy = 0, keys = {}, lookamount = 5, moveamount = 5, angleadjust = 270;
+// w moves:
+// 0: right
+// 90: down
+// 180: left
+// 270: up
+function moveForward(amount) {
+    let x = Math.cos((angle + angleadjust) * Math.PI / 180) * amount;
+    let y = Math.sin((angle + angleadjust) * Math.PI / 180) * amount;
     dx += x;
     dy += y;
     document.querySelector(':root').style.setProperty('--dx', dx + 'px');
     document.querySelector(':root').style.setProperty('--dy', dy + 'px');
 }
-function moveForward(amount) {
-    let x = Math.cos((angle + 90) * Math.PI / 180) * amount;
-    let y = Math.sin((angle + 90) * Math.PI / 180) * amount;
+function moveLateral(amount) {
+    let x = Math.cos((angle + 90 + angleadjust) * Math.PI / 180) * amount;
+    let y = Math.sin((angle + 90 + angleadjust) * Math.PI / 180) * amount;
     dx += x;
     dy += y;
     document.querySelector(':root').style.setProperty('--dx', dx + 'px');
@@ -53,10 +58,10 @@ window.setInterval(function () {
     if (keys["s"]) {
         moveForward(-moveamount * (keys["shift"] ? 2 : 1));
     }
-    if (keys["a"]) {
+    if (keys["d"]) {
         moveLateral(moveamount * (keys["shift"] ? 2 : 1));
     }
-    if (keys["d"]) {
+    if (keys["a"]) {
         moveLateral(-moveamount * (keys["shift"] ? 2 : 1));
     }
 }, 1000 / 60);
