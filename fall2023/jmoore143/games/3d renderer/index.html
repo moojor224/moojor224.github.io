@@ -5,117 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-        :root {
-            --cube-width: 100px;
-            --cube-height: 100px;
-            --cube-length: 100px;
-            --rx: 0deg;
-            --ry: 0deg;
-            --rz: 0deg;
-            --dx: 0px;
-            --dy: 0px;
-            --dz: 0px;
-        }
-
-        world {
-            position: absolute;
-            transform-origin: 50% 50%;
-            transform: rotateX(var(--rx)) rotateY(var(--ry)) rotateZ(var(--rz)) translateX(var(--dx)) translateY(var(--dy)) translateZ(var(--dz));
-            box-sizing: border-box;
-
-        }
-
-        * {
-            transform-style: preserve-3d;
-        }
-
-        html {
-            /* perspective: 800px; */
-            overflow: hidden;
-        }
-
-        body {
-            /**/
-            width: 1280px;
-            height: 720px;
-            overflow: hidden;
-            border: 10px solid green;
-        }
-
-        world,
-        axis {
-            width: 100%;
-            height: 100%;
-        }
-
-        world * {
-            position: absolute;
-            box-sizing: border-box;
-        }
-
-        cube {
-            width: 100px;
-            height: 100px;
-            /* transform: translateZ(-200px) rotateY(10deg) rotateX(-30deg) ; */
-            transform: translateX(200px) translateZ(100px);
-            overflow: visible;
-
-            & face {
-                top: 0px;
-                left: 0px;
-                display: block;
-                width: 100px;
-                height: 100px;
-                background-color: #0000ffba;
-                border: 3px solid black;
-
-                &:nth-child(1) {
-                    transform: translateZ(50px);
-                }
-
-                &:nth-child(2) {
-                    transform: translateZ(-50px);
-                }
-
-                &:nth-child(3) {
-                    transform: translateY(-50px) rotateX(-90deg);
-                }
-
-                &:nth-child(4) {
-                    transform: translateY(50px) rotateX(90deg);
-                }
-
-                &:nth-child(5) {
-                    transform: translateX(50px) rotateY(-90deg);
-                }
-
-                &:nth-child(6) {
-                    transform: translateX(-50px) rotateY(-90deg);
-                }
-            }
-        }
-
-        axis {
-            & plane {
-                display: block;
-                width: 1000px;
-                height: 1000px;
-                background-color: rgba(255, 0, 0, 0.459);
-                border: 3px solid black;
-
-                &:nth-child(2) {
-                    transform: rotateX(90deg) translateZ(-1000px);
-                    transform-origin: top;
-                }
-
-                &:nth-child(3) {
-                    transform: rotateY(-90deg);
-                    transform-origin: left;
-                }
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
     <script>
         function inside(point, vs) {
             var x = point[0], y = point[1];
@@ -142,32 +32,47 @@
 </head>
 
 <body>
-    <input type="range" min="-360" max="360" value="0"
-        oninput="document.querySelector(':root').style.setProperty('--rx', this.value + 'deg');"><span>rotate
-        x</span><br>
-    <input type="range" min="-360" max="360" value="0"
-        oninput="document.querySelector(':root').style.setProperty('--ry', this.value + 'deg');"><span>rotate
-        y</span><br>
-    <input type="range" min="-360" max="360" value="0"
-        oninput="document.querySelector(':root').style.setProperty('--rz', this.value + 'deg');"><span>rotate
-        z</span><br>
-    <div class="render">
-        <world>
-            <axis>
-                <plane></plane>
-                <plane></plane>
-                <plane></plane>
-            </axis>
-            <cube>
-                <face></face>
-                <face></face>
-                <face></face>
-                <face></face>
-                <face></face>
-                <face></face>
-            </cube>
-        </world>
-    </div>
+    <input type="range" min="-360" max="360" value="0" oninput="document.querySelector(':root').style.setProperty('--rx', this.value + 'deg');">
+    <span>rotate x</span><br>
+    <input type="range" min="-360" max="360" value="0" oninput="document.querySelector(':root').style.setProperty('--ry', this.value + 'deg');">
+    <span>rotate y</span><br><br><br><br><br><br>
+    <input type="range" min="-1000" max="1000" value="0" oninput="document.querySelector(':root').style.setProperty('--dx', this.value + 'px');">
+    <span>translate x</span><br>
+    <input type="range" min="-1000" max="1000" value="0" oninput="document.querySelector(':root').style.setProperty('--dz', this.value + 'px');">
+    <span>translate z</span><br>
+    <viewport>
+        <offset>
+            <world>
+                <axis>
+                    <plane></plane>
+                    <plane></plane>
+                    <plane></plane>
+                </axis>
+                <cube>
+                    <face></face>
+                    <face></face>
+                    <face></face>
+                    <face></face>
+                    <face></face>
+                    <face></face>
+                </cube>
+                <person></person>
+                <level style="
+                    transform: translateY(1000px) rotateX(90deg);
+                ">
+                    <floor style="
+                        width: 1000px;
+                        height: 1000px;
+                        background-color: orange;
+                        border: 5px solid black;
+                        display: block;
+                        transform-origin: top;
+                    "></floor>
+                </level>
+            </world>
+        </offset>
+    </viewport>
+    <script src="app.js"></script>
 </body>
 
 </html>
