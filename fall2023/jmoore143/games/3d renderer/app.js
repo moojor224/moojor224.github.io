@@ -12,7 +12,55 @@ Number.prototype.wrapRange = function (min, max) {
     }
     return val;
 }
+/*
+let angle = 0, dx = 0, dy = 0, keys = {}, lookamount = 5, moveamount = 5;
+function moveLateral(amount) {
+    let x = Math.cos((angle) * Math.PI / 180) * amount;
+    let y = Math.sin((angle) * Math.PI / 180) * amount;
+    dx += x;
+    dy += y;
+    document.querySelector(':root').style.setProperty('--dx', dx + 'px');
+    document.querySelector(':root').style.setProperty('--dy', dy + 'px');
+}
+function moveForward(amount) {
+    let x = Math.cos((angle + 90) * Math.PI / 180) * amount;
+    let y = Math.sin((angle + 90) * Math.PI / 180) * amount;
+    dx += x;
+    dy += y;
+    document.querySelector(':root').style.setProperty('--dx', dx + 'px');
+    document.querySelector(':root').style.setProperty('--dy', dy + 'px');
+}
+document.body.addEventListener("keydown", function (event) {
+    event.preventDefault();
+    keys[event.key.toLowerCase()] = true;
+});
+document.body.addEventListener("keyup", function (event) {
+    event.preventDefault();
+    keys[event.key.toLowerCase()] = false;
+});
+window.setInterval(function () {
+    if (keys["arrowleft"]) {
+        angle -= lookamount;
+    }
+    if (keys["arrowright"]) {
+        angle += lookamount;
+    }
+    document.querySelector(':root').style.setProperty('--angle', angle + 'deg');
 
+    if (keys["w"]) {
+        moveForward(moveamount * (keys["shift"] ? 2 : 1));
+    }
+    if (keys["s"]) {
+        moveForward(-moveamount * (keys["shift"] ? 2 : 1));
+    }
+    if (keys["a"]) {
+        moveLateral(moveamount * (keys["shift"] ? 2 : 1));
+    }
+    if (keys["d"]) {
+        moveLateral(-moveamount * (keys["shift"] ? 2 : 1));
+    }
+}, 1000 / 60);
+*/
 let keys = {};
 document.body.addEventListener("keydown", function (event) {
     event.preventDefault();
