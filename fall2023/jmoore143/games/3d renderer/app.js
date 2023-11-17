@@ -19,7 +19,7 @@ let keys = {}, angleadjust = 270;
 // 90: downI
 // 180: left
 // 270: up
-let ly = 0, lx = 0, lookamount = 2, dx = 0, dz = 0, moveamount = 10;
+let ly = 0, lx = 0, lookamount = 2, dx = 0, dz = 0, moveamount = 10, pointerlocked = false;
 function moveForward(amount) {
     let x = Math.cos((lx + angleadjust) * Math.PI / 180) * amount;
     let y = Math.sin((lx + angleadjust) * Math.PI / 180) * amount;
@@ -39,7 +39,7 @@ function moveLateral(amount) {
 window.setInterval(function () {
     document.querySelector(':root').style.setProperty('--ly', ly + 'deg');
 
-    
+
 }, 1000 / 60);
 
 // let keys = {};
@@ -82,3 +82,36 @@ window.setInterval(function () {
         moveLateral(moveamount * (keys["shift"] ? 2 : 1));
     }
 }, 1000 / 60);
+document.querySelector("body").addEventListener("", function () {
+
+});
+let maxmouse = 15;
+function readmouse(event) {
+    // console.log(event.movementX, event.movementY);
+
+    lx += (event.movementX / 4).clamp(-maxmouse, maxmouse);// horizontal look
+    ly -= (event.movementY / 4).clamp(-maxmouse, maxmouse);// vertical look
+
+    lx = lx.wrapRange(0, 360);
+    ly = ly.clamp(-90, 90);
+
+    document.querySelector(':root').style.setProperty('--rx', ly + 'deg');
+    document.querySelector(':root').style.setProperty('--ry', lx + 'deg');
+}
+let viewport = document.querySelector("viewport");
+viewport.addEventListener("click", function () {
+    viewport.requestPointerLock({
+        unadjustedMovement: true,
+    });
+});
+window.addEventListener("pointerlockchange", function () {
+    if (document.pointerLockElement == viewport && !pointerlocked) {
+        console.log("add pointer reader");
+        pointerlocked = true;
+        window.addEventListener("mousemove", readmouse, false);
+    } else {
+        console.log("remove pointer reader");
+        pointerlocked = false;
+        window.removeEventListener("mousemove", readmouse, false);
+    }
+});
