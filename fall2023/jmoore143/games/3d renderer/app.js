@@ -1,4 +1,7 @@
-Number.prototype.clamp = (min, max) => Math.min(Math.max(this, min), max);
+Number.prototype.clamp = function (min, max) {
+    return Math.min(Math.max(this, min), max);
+    
+};
 
 Number.prototype.wrapRange = function (min, max) {
     let val = this.valueOf();
