@@ -245,24 +245,24 @@
     console.debug("building nav");
     function buildNav() {
         console.debug("adding nav element");
-        var nv = document.querySelector("nav");
+        let nv = document.querySelector("nav");
         document.head.add(nv.querySelector("style"));
         console.debug("rendering nav");
-        var render = nav.render();
+        let render = nav.render();
         console.log("rendered nav:", render);
         nv.replaceWith(render);
     }
 
-    var nav = new Nav();
-    var projects = new NavItem("Projects", "#");
+    let nav = new Nav();
+    let projects = new NavItem("Projects", "#");
 
     projects.add(
         new NavItem("7 Segment Display", "/fall2023/jmoore143/projects/7seg"),
     );
 
     // var school = new NavItem("Schoolwork", "/fall2023/jmoore143/schoolwork");
-    var school = new NavItem("Schoolwork", "#");
-    var daily = new NavItem("Daily Assignments", "#");
+    let school = new NavItem("Schoolwork", "#");
+    let daily = new NavItem("Daily Assignments", "#");
     let homework = new NavItem("Homework Assignments", "#");
     let experiments = new NavItem("Web Experiments", "#");
 
