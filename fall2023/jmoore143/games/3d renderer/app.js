@@ -1,6 +1,6 @@
 Number.prototype.clamp = function (min, max) {
     return Math.min(Math.max(this, min), max);
-    
+
 };
 
 Number.prototype.wrapRange = function (min, max) {
@@ -45,11 +45,15 @@ window.setInterval(function () {
 
 // let keys = {};
 document.body.addEventListener("keydown", function (event) {
-    event.preventDefault();
+    if (event.key.toLowerCase().includes("arrow")) {
+        event.preventDefault();
+    }
     keys[event.key.toLowerCase()] = true;
 });
 document.body.addEventListener("keyup", function (event) {
-    event.preventDefault();
+    if (event.key.toLowerCase().includes("arrow")) {
+        event.preventDefault();
+    }
     keys[event.key.toLowerCase()] = false;
 });
 window.setInterval(function () {
