@@ -7,19 +7,19 @@
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
     <script>
-        function inside(point, vs) {
-            var x = point[0], y = point[1];
-            var inside = false;
-            for (var i = 0, j = vs.length - 1; i < vs.length; j = i++) {
-                var xi = vs[i][0], yi = vs[i][1];
-                var xj = vs[j][0], yj = vs[j][1];
+        // function inside(point, vs) {
+        //     var x = point[0], y = point[1];
+        //     var inside = false;
+        //     for (var i = 0, j = vs.length - 1; i < vs.length; j = i++) {
+        //         var xi = vs[i][0], yi = vs[i][1];
+        //         var xj = vs[j][0], yj = vs[j][1];
 
-                var intersect = ((yi > y) != (yj > y)) && (x < (xj - xi) * (y - yi) / (yj - yi) + xi);
-                if (intersect) inside = !inside;
-            }
-            return inside;
-        };
-        var polygon = [[0, 0], [8, 0], [8, 6], [0, 2]];
+        //         var intersect = ((yi > y) != (yj > y)) && (x < (xj - xi) * (y - yi) / (yj - yi) + xi);
+        //         if (intersect) inside = !inside;
+        //     }
+        //     return inside;
+        // };
+        // var polygon = [[0, 0], [8, 0], [8, 6], [0, 2]];
         // console.log(inside([1, 1], polygon));//true
         // console.log(inside([1, 4], polygon));//false
         // console.log(inside([5, 1], polygon));//true
@@ -32,14 +32,6 @@
 </head>
 
 <body>
-    <input type="range" min="-360" max="360" value="0" oninput="document.querySelector(':root').style.setProperty('--rx', this.value + 'deg');">
-    <span>rotate x</span><br>
-    <input type="range" min="-360" max="360" value="0" oninput="document.querySelector(':root').style.setProperty('--ry', this.value + 'deg');">
-    <span>rotate y</span><br><br><br><br><br><br>
-    <input type="range" min="-1000" max="1000" value="0" oninput="document.querySelector(':root').style.setProperty('--dx', this.value + 'px');">
-    <span>translate x</span><br>
-    <input type="range" min="-1000" max="1000" value="0" oninput="document.querySelector(':root').style.setProperty('--dz', this.value + 'px');">
-    <span>translate z</span><br>
     <viewport>
         <offset>
             <world>
@@ -63,15 +55,17 @@
                     <floor style="
                         width: 3000px;
                         height: 3000px;
-                        background-color: orange;
-                        border: 5px solid black;
-                        display: block;
                         transform-origin: top;
+                        transform:translateY(-200px);
+                    "></floor>
+                    <floor style="
+                        width: 640px;
+                        height: 100px;
                     "></floor>
                 </level>
             </world>
         </offset>
-        <overlay></overlay>
+        <!-- <overlay></overlay> -->
     </viewport>
     <script src="app.js"></script>
 </body>
