@@ -31,7 +31,6 @@ let keys = {}, angleadjust = 270;
 // 180: left
 // 270: up
 function pick(line, point) {
-    console.log("pick before", point);
     let [px, py] = point;
     let [[x1, y1], [x2, y2]] = line;
     if (px.clamp(x1, x2) == px && py.clamp(y1, y2) == py) return point;
@@ -140,11 +139,6 @@ function moveForward(amount) {
         document.querySelector(':root').style.setProperty('--dz', dz + 'px');
     } else {
         let point = closestPointOnPolygon([dx + x, dz + y], polygon);
-        // if (intersects(point, polygon)) {
-        //     console.log(point);
-        //     return;
-        // }
-        console.log("old", [dx, dz], "new", point);
         [dx, dz] = point;
         document.querySelector(':root').style.setProperty('--dx', dx + 'px');
         document.querySelector(':root').style.setProperty('--dz', dz + 'px');
@@ -160,10 +154,6 @@ function moveLateral(amount) {
         document.querySelector(':root').style.setProperty('--dz', dz + 'px');
     } else {
         let point = closestPointOnPolygon([dx + x, dz + y], polygon);
-        // if (intersects(point, polygon)) {
-        //     console.log(point);
-        //     return;
-        // }
         [dx, dz] = point;
         document.querySelector(':root').style.setProperty('--dx', dx + 'px');
         document.querySelector(':root').style.setProperty('--dz', dz + 'px');
@@ -184,6 +174,7 @@ document.body.addEventListener("keyup", function (event) {
     keys[event.key.toLowerCase()] = false;
 });
 window.setInterval(function () {
+    if(!pointerlocked) return;
     if (keys["arrowup"]) {
         ly += lookamount;
     }
@@ -219,8 +210,6 @@ document.querySelector("body").addEventListener("", function () {
 });
 let maxmouse = 15;
 function readmouse(event) {
-    // console.log(event.movementX, event.movementY);
-
     lx += (event.movementX / 4).clamp(-maxmouse, maxmouse);// horizontal look
     ly -= (event.movementY / 4).clamp(-maxmouse, maxmouse);// vertical look
 
@@ -237,7 +226,7 @@ viewport.addEventListener("click", function () {
     });
 });
 window.addEventListener("pointerlockchange", function () {
-    if (document.pointerLockElement == viewport && !pointerlocked) {
+    if (document.pointerLockElement == viewport) {
         console.log("add pointer reader");
         pointerlocked = true;
         window.addEventListener("mousemove", readmouse, false);
@@ -245,5 +234,6 @@ window.addEventListener("pointerlockchange", function () {
         console.log("remove pointer reader");
         pointerlocked = false;
         window.removeEventListener("mousemove", readmouse, false);
+        document.querySelector('viewport menu').classList.remove('hidden')
     }
 });
