@@ -14,7 +14,7 @@ game {
     align-items: center;
     --border-width: 3px;
 
-    board {
+    & board {
         --cell-size: 80px;
 
         & row {
@@ -80,7 +80,7 @@ game {
         }
     }
 
-    scoreboard {
+    & scoreboard {
         font-size: 3em;
 
         & row {
