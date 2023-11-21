@@ -25,8 +25,13 @@ class Game {
                 }
             }))
         );
+        this.turnDisplay = createElement("div", {
+            classList: "turnDisplay",
+            innerHTML: this.order[+this.turn] + "'s turn",
+        });
         game.add(this.scoreboard);
         game.add(this.board);
+        game.add(this.turnDisplay);
         document.querySelector("main").add(game);
         let arr = new Array(size).fill("").map((e, n) => n + 1);
         this.groups.push(...arr.map(e => [...this.board.querySelectorAll(`row:nth-child(${e}) cell`)]));// get rows
@@ -46,6 +51,7 @@ class Game {
             ))
         );
     }
+    done = false;
     check() {
         console.log("checking");
         let win = false;
@@ -53,23 +59,25 @@ class Game {
         let full = true;
         for (var i in this.groups) {
             let e = this.groups[i].map(e => e.dataset.marker);
-            if(e){
+            if (e) {
                 full = false;
             }
             if ([...new Set(e)].length == 1 && ["x", "o"].includes(e[0])) {
                 winningGroup = this.groups[i];
                 console.log("win");
+                this.done = true;
                 break;
             }
         }
         let game = this;
-        if(full){
-            window.setTimeout(function(){
+        if (full) {
+            this.done = true;
+            window.setTimeout(function () {
                 alert("tie!");
                 game.clear();
                 [game.order[0], game.order[1]] = [game.order[1], game.order[0]];
                 game.turn = false;
-            }, 100)
+            }, 100);
         }
         if (winningGroup) {
             window.setTimeout(function () {
@@ -99,13 +107,15 @@ class Game {
     }
     clear() {
         this.groups.forEach(g => g.forEach(e => e.dataset.marker = ""));
-
+        this.turnDisplay.innerHTML = this.order[+this.turn] + "'s turn";
+        this.done = false;
     }
     score() {
         this.scoreboard.querySelector("[data-player='x']").innerHTML = this.tally(this.x_score);
         console.log(this.tally(this.x_score));
         this.scoreboard.querySelector("[data-player='o']").innerHTML = this.tally(this.o_score);
         console.log(this.tally(this.o_score));
+        this.turnDisplay.innerHTML = this.order[+this.turn] + "'s turn";
     }
     turn = false;
     order = ["x", "o"];
@@ -113,12 +123,13 @@ class Game {
         while (el.tagName.toLowerCase() !== "cell") {
             el = el.parentElement;
         }
-        if (el.dataset.marker) {
+        if (el.dataset.marker || this.done) {
             return;
         }
         el.dataset.marker = this.order[+this.turn];
         this.turn = !this.turn;
         this.check();
+        this.turnDisplay.innerHTML = this.order[+this.turn] + "'s turn";
 
     }
 }
