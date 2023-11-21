@@ -59,6 +59,14 @@ game {
             &[data-marker="o"]>div>i::before {
                 content: '\4f';
             }
+
+            &[data-marker="x"]>div>i {
+                content: 'x';
+            }
+
+            &[data-marker="o"]>div>i {
+                content: 'o';
+            }
         }
 
         & row:not(:first-child) cell {
