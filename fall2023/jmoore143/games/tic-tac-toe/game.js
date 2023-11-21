@@ -85,10 +85,10 @@ class Game {
                 game[winner + "_score"]++;
                 alert(winner + " wins");
                 setTimeout(function () {
-                    game.clear();
-                    game.score();
                     [game.order[0], game.order[1]] = [game.order[1], game.order[0]];
                     game.turn = false;
+                    game.clear();
+                    game.score();
                 }, 1000);
             }, 100);
         }
