@@ -17,7 +17,11 @@
 
 <body>
     <main>
-        
+        <div class="controls">
+            <span>Grid size</span>
+            <input type="number" id="count" min="2" max="10" value="3" placeholder="grid size">
+            <button onclick="new Game(document.getElementById('count').value || 3)">new game</button>
+        </div>
     </main>
     <script>
         let game = new Game(3);

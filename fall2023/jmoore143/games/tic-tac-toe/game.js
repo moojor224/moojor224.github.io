@@ -3,6 +3,13 @@ class Game {
     x_score = 0;
     o_score = 0;
     constructor(size) {
+        size = Math.round(size);
+        if (size < 3) {
+            size = 3;
+        }
+        if (size > 10) {
+            size = 10;
+        }
         this.#makeBoard(size);
         let game = createElement("game");
         this.scoreboard = createElement("scoreboard").add(
