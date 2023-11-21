@@ -58,6 +58,7 @@ class Game {
             }
             if ([...new Set(e)].length == 1 && ["x", "o"].includes(e[0])) {
                 winningGroup = this.groups[i];
+                console.log("win");
                 break;
             }
         }
@@ -70,7 +71,7 @@ class Game {
                 game.turn = false;
             }, 100)
         }
-        if (win) {
+        if (winningGroup) {
             window.setTimeout(function () {
                 let winner = (winningGroup[0].dataset.marker);
                 game[winner + "_score"]++;
