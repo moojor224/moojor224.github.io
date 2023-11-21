@@ -153,56 +153,28 @@
             output.add(
                 createElement("table").add(
                     createElement("tr").add(
-                        createElement("td", { "rowSpan": "3" }).add(
-                            createElement("div", { "innerHTML": "origin" }),
-                        ),
-                        createElement("td", { "rowSpan": "3" }).add(
-                            createElement("div", { "innerHTML": data.origin }),
-                        ),
-                        createElement("td").add(
-                            createElement("div", { "innerHTML": "protocol" }),
-                        ),
-                        createElement("td").add(
-                            createElement("div", { "innerHTML": data.protocol, className: "unwrap" }),
-                        ),
+                        createElement("td", { "rowSpan": "3" }).add(createElement("div", { "innerHTML": "origin" })),
+                        createElement("td", { "rowSpan": "3" }).add(createElement("div", { "innerHTML": data.origin })),
+                        createElement("td").add(createElement("div", { "innerHTML": "protocol" })),
+                        createElement("td").add(createElement("div", { "innerHTML": data.protocol, className: "unwrap" })),
                     ),
                     createElement("tr").add(
-                        createElement("td", { "rowSpan": "2" }).add(
-                            createElement("div", { "innerHTML": "host" }),
-                        ),
-                        createElement("td", { "rowSpan": "2" }).add(
-                            createElement("div", { "innerHTML": data.host, className: "unwrap" }),
-                        ),
-                        createElement("td").add(
-                            createElement("div", { "innerHTML": "hostname" }),
-                        ),
-                        createElement("td").add(
-                            createElement("div", { "innerHTML": data.hostname, className: "unwrap" }),
-                        ),
+                        createElement("td", { "rowSpan": "2" }).add(createElement("div", { "innerHTML": "host" })),
+                        createElement("td", { "rowSpan": "2" }).add(createElement("div", { "innerHTML": data.host, className: "unwrap" })),
+                        createElement("td").add(createElement("div", { "innerHTML": "hostname" })),
+                        createElement("td").add(createElement("div", { "innerHTML": data.hostname, className: "unwrap" })),
                     ),
                     createElement("tr").add(
-                        createElement("td").add(
-                            createElement("div", { "innerHTML": "port" }),
-                        ),
-                        createElement("td").add(
-                            createElement("div", { "innerHTML": data.port, className: "unwrap" }),
-                        ),
+                        createElement("td").add(createElement("div", { "innerHTML": "port" })),
+                        createElement("td").add(createElement("div", { "innerHTML": data.port, className: "unwrap" })),
                     ),
                     createElement("tr").add(
-                        createElement("td").add(
-                            createElement("div", { "innerHTML": "pathname" }),
-                        ),
-                        createElement("td").add(
-                            createElement("div", { "innerHTML": data.pathname }),
-                        ),
+                        createElement("td").add(createElement("div", { "innerHTML": "pathname" })),
+                        createElement("td").add(createElement("div", { "innerHTML": data.pathname })),
                     ),
                     createElement("tr").add(
-                        createElement("td").add(
-                            createElement("div", { "innerHTML": "search" }),
-                        ),
-                        createElement("td").add(
-                            createElement("div", { "innerHTML": data.search }),
-                        ),
+                        createElement("td").add(createElement("div", { "innerHTML": "search" })),
+                        createElement("td").add(createElement("div", { "innerHTML": data.search })),
                         createElement("td", { colSpan: "4" }).add(
                             createElement("div").add(
                                 data.search.length > 0 ? createElement("table").add(
@@ -218,23 +190,18 @@
                                             createElement("div", {
                                                 innerHTML: kv[1],
                                                 style: {
-                                                    wordBreak: "break-all",
-                                                    // width: "50%",
+                                                    wordBreak: "break-all"
                                                 }
                                             })
                                         )
                                     ))
                                 ) : ""
                             )
-                        ),
+                        )
                     ),
                     createElement("tr").add(
-                        createElement("td").add(
-                            createElement("div", { "innerHTML": "Hash" }),
-                        ),
-                        createElement("td").add(
-                            createElement("div", { "innerHTML": data.hash }),
-                        )
+                        createElement("td").add(createElement("div", { "innerHTML": "Hash" })),
+                        createElement("td").add(createElement("div", { "innerHTML": data.hash }))
                     )
                 )
             );
