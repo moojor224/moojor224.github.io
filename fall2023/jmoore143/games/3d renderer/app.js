@@ -174,7 +174,7 @@ document.body.addEventListener("keyup", function (event) {
     keys[event.key.toLowerCase()] = false;
 });
 window.setInterval(function () {
-    if(!pointerlocked) return;
+    if (!pointerlocked) return;
     if (keys["arrowup"]) {
         ly += lookamount;
     }
@@ -220,7 +220,7 @@ function readmouse(event) {
     document.querySelector(':root').style.setProperty('--ry', lx + 'deg');
 }
 let viewport = document.querySelector("viewport");
-viewport.addEventListener("click", function () {
+viewport.querySelector("world").addEventListener("click", function () {
     viewport.requestPointerLock({
         unadjustedMovement: true,
     });
@@ -237,3 +237,23 @@ window.addEventListener("pointerlockchange", function () {
         document.querySelector('viewport menu').classList.remove('hidden')
     }
 });
+
+(function () {
+    const times = [];
+    let fps;
+
+    function refreshLoop() {
+        window.requestAnimationFrame(() => {
+            const now = performance.now();
+            while (times.length > 0 && times[0] <= now - 1000) {
+                times.shift();
+            }
+            times.push(now);
+            fps = times.length;
+            document.querySelector("fps").innerHTML = fps + " fps";
+            refreshLoop();
+        });
+    }
+
+    refreshLoop();
+})()
