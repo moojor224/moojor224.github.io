@@ -35,14 +35,10 @@ person {
     display: block;
 }
 
-* {
+viewport * {
     transform-style: preserve-3d;
 }
 
-viewport {
-    overflow: hidden;
-    perspective: var(--perspective);
-}
 
 offset {
     perspective: var(--perspective);
@@ -60,10 +56,11 @@ viewport {
     /**/
     width: 1280px;
     height: 720px;
-    overflow: hidden;
     border: 10px solid green;
     display: block;
 
+    overflow: hidden;
+    perspective: var(--perspective);
 }
 
 world,
