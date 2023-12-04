@@ -1,9 +1,10 @@
 /* <!-- copyright Jordan Moore (jmoore143) --> */
 
 /* @import url("/fall2023/jmoore143/css/reset.css"); */
-@import url("/fall2023/jmoore143/css/themes.css");
-@import url("/fall2023/jmoore143/css/fontawesome/css/all.css");
-@import url("/fall2023/jmoore143/css/ember\ fonts.css");
+@import url("./themes.css");
+@import url("./fontawesome/css/all.css");
+@import url("./ember\ fonts.css");
+@import url("./elements.css");
 
 
 :root {
@@ -49,7 +50,6 @@ main {
     padding-top: 80px;
     min-height: 100vh;
     /* width: 80%; */
-    overflow-y: auto;
     width: 80%;
     /* padding: 0 10px; */
 }
@@ -63,3 +63,4 @@ img[data-src] {
     margin-right: auto;
     width: 100px;
 }
+
