@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- copyright Jordan Moore (jmoore143) -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>graph</title>
+    <link rel="stylesheet" href="/fall2023/jmoore143/css/global.css">
+    <script src="/fall2023/jmoore143/js/jstools.js"></script>
+    <script src="/fall2023/jmoore143/js/global.js"></script>
+    <style>
+        canvas {
+            background-color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <nav></nav>
+    <main>
+        <canvas id="canvas" width="1000" height="308"></canvas>
+        <script>
+            function fun1(x) { return Math.sin(x); }
+            function fun2(x) { return Math.cos(3 * x); }
+            let a = 0.2, d = 1.4, h = 3, S = 0.05, w = 0.02;
+            let L = 2 * d;
+            function periodic_ecg(x) {
+                return ecg(saw(x));
+            }
+            function saw(x) {
+                x = x/2;
+                return x - Math.ceil(x / L - 0.5) * L;
+            }
+            function ecg(x) {
+                return a * (
+                    Math.pow(Math.E, (
+                        (-Math.pow((x + d), 2)) / (2 * w)
+                    )) + Math.pow(Math.E, ((-Math.pow((x - d), 2)) / (2 * w))))
+                    + (h - Math.abs(x / S) - x) * Math.pow(Math.E, ((-Math.pow((7 * x), 2)) / 2))
+            }
+
+            function draw() {
+                var canvas = document.getElementById("canvas");
+                if (null == canvas || !canvas.getContext) return;
+
+                var axes = {}, ctx = canvas.getContext("2d");
+                axes.x0 = .5 + .5 * canvas.width;  // x0 pixels from left to x=0
+                axes.y0 = .5 + .5 * canvas.height; // y0 pixels from top to y=0
+                axes.scale = 40;                 // 40 pixels from x=0 to x=1
+                axes.doNegativeX = true;
+
+                showAxes(ctx, axes);
+                // funGraph(ctx, axes, fun1, "rgb(11,153,11)", 1);
+                // funGraph(ctx, axes, fun2, "rgb(66,44,255)", 2);
+                funGraph(ctx, axes, periodic_ecg, "#f33", 2);
+            }
+
+            function funGraph(ctx, axes, func, color, thick) {
+                var xx, yy, dx = 4, x0 = axes.x0, y0 = axes.y0, scale = axes.scale;
+                var iMax = Math.round((ctx.canvas.width - x0) / dx);
+                var iMin = axes.doNegativeX ? Math.round(-x0 / dx) : 0;
+                ctx.beginPath();
+                ctx.lineWidth = thick;
+                ctx.strokeStyle = color;
+
+                for (var i = iMin; i <= iMax; i++) {
+                    xx = dx * i; yy = scale * func(xx / scale);
+                    if (i == iMin) ctx.moveTo(x0 + xx, y0 - yy);
+                    else ctx.lineTo(x0 + xx, y0 - yy);
+                }
+                ctx.stroke();
+            }
+
+            function showAxes(ctx, axes) {
+                var x0 = axes.x0, w = ctx.canvas.width;
+                var y0 = axes.y0, h = ctx.canvas.height;
+                var xmin = axes.doNegativeX ? 0 : x0;
+                ctx.beginPath();
+                ctx.strokeStyle = "rgb(128,128,128)";
+                ctx.moveTo(xmin, y0); ctx.lineTo(w, y0);  // X axis
+                ctx.moveTo(x0, 0); ctx.lineTo(x0, h);  // Y axis
+                ctx.stroke();
+            }
+            draw();
+        </script>
+    </main>
+    <footer></footer>
+</body>
+
+</html>
