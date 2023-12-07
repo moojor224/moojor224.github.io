@@ -55,7 +55,7 @@ main {
 }
 
 main>div {
-    width: 800px;
+    min-width: 800px;
 }
 
 img[data-src] {
