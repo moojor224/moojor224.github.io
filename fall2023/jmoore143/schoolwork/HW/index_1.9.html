@@ -1,0 +1,61 @@
+<!-- Copyright Jordan Moore (jmoore143) -->
+<!DOCTYPE html>
+<html lang="en">
+<!-- Name: Jordan Moore -->
+<!-- Course: ITSE 1311.001 -->
+<!-- Date: November 22, 2023-->
+<!-- Assignment: part 1.54 -- Code a bunch of links with <a> tags AND learn about Pseudo Classes -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>html links</title>
+    <style>
+        header+div>a {
+            font-size: 4rem;
+        }
+        a:visited {
+            font-weight: bold;
+        }
+        a:active{
+            font-weight: bolder;
+        }
+        a:hover{
+            color: green;
+        }
+        a:focus {
+            color: yellow;
+        }
+        h1:hover{
+            font-size: 10em;
+        }
+        p::selection{
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>the hyper in HTML</h1>
+        <hr>
+    </header>
+    <div>
+        <a href="http://one.com" target="_blank">1</a><br>
+        <a href="http://two.com" target="_self">2</a><br>
+        <a href="http://three.com">3</a><br>
+        <a href="http://four.com">4</a><br>
+        <a href="http://five.com">5</a><br>
+    </div>
+    <br>
+    <div>
+        <a href="http://six.com">6</a>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Perferendis, distinctio saepe optio numquam qui exercitationem totam
+            obcaecati reprehenderit aspernatur repellendus ut, quisquam fugiat et
+            temporibus.</p>
+    </div>
+</body>
+
+</html>
