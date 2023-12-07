@@ -10,15 +10,37 @@
     <script src="/fall2023/jmoore143/js/jstools.js"></script>
     <script src="/fall2023/jmoore143/js/global.js"></script>
 
-    <link rel="stylesheet" href="/fall2023/jmoore143/css/reset.css">
-    <link rel="stylesheet" href="/fall2023/jmoore143/css/themes.css">
-    <link rel="stylesheet" href="/fall2023/jmoore143/css/ember fonts.css">
+    <!-- <link rel="stylesheet" href="/fall2023/jmoore143/css/reset.css"> -->
     <link rel="stylesheet" href="/fall2023/jmoore143/css/global.css">
+    <style>
+        #coding-video{
+            display: grid;
+            grid-template-columns: auto auto;
+        }
+        #coding-video div:last-child{
+            display: flex;
+            align-items: center;
+        }
+        figcaption {
+            padding: 10px;
+        }
+    </style>
 </head>
 
 <body style="margin: 0px;" class="dark">
     <main>
-
+        <div>
+            <h1>Welcome to my website!</h1>
+            <p>this site is for pretty much anything that I do, whether it's web development or electronics</p>
+        </div>
+        <div>
+            <figure>
+                <video width="600px" controls>
+                    <source src="./sweaty_coding.mp4" type="video/mp4">
+                </video>
+                <figcaption>video representation of me coding this website</figcaption>
+              </figure>
+        </div>
     </main>
     <script>
         if (window.location.href.includes("donotenter.com")) {
