@@ -6,67 +6,83 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        /* div {
-            padding: 0px;
-            margin: 0px;
-            height: 30px;
+        div.grid {
+            display: grid;
+            grid-template-columns: auto 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            border: 3px solid green;
+            border-spacing: 0px;
+            border-collapse: collapse;
+            gap: 0px;
+            width: 500px;
+            height: 500px;
+        }
+
+        div.grid>* {
+            border: 3px solid red;
+        }
+
+        .grid input[type=checkbox] {
+            display: none;
+        }
+
+        .grid input[type=checkbox]:checked+div.menu {
             width: 100px;
-            background-color: green;
-            border: 2px solid black;
-            transition-property: width, height;
+        }
+
+        .grid div.burger {
+            grid-row: 1 / span 1;
+            grid-column: 2 / span 1;
+        }
+
+        .grid div.menu {
+            grid-row: 1 / span 2;
+            grid-column: 1 / span 1;
+            overflow-x: hidden;
+            transition-property: width;
             transition-duration: 0.5s;
-        }
-
-        div:hover {
-            width: 300px;
-            height: 40px;
-        }
-
-        a {
-            width: 100%;
+            transition-timing-function: ease;
+            position: absolute;
+            background-color: lightgray;
             height: 100%;
-            color: white;
-            text-decoration: none;
-            padding: 5px;
-
-        } */
-
-        space {
-            height: 300px;
-            display: block;
+            width: 0px;
+            box-sizing: border-box;
         }
 
-        body {
-            font-size: 25px;
+        div.bag {
+            width: 20px;
+            height: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            z-index: 20;
+            position: relative
+        }
+        div.hamburger {
+            width: 100%;
+            border-radius: 5px;
+            border: 2px solid black;
+            background-color: black;
         }
     </style>
 </head>
 
 <body>
-    <div>
-        <a href="#1">1</a><br>
-        <a href="#2">2</a><br>
-        <a href="#3">3</a><br>
-        <a href="#4">4</a><br>
-        <a href="#5">5</a><br>
-        <a href="#6">6</a><br>
-        <a href="#7">7</a><br>
+    <div class="grid">
+        <input type="checkbox" id="box">
+        <div class="menu">
+            this here is the menu
+        </div>
+        <div class="burger">
+            <label for="box">
+                <div class="bag">
+                    <div class="hamburger"></div>
+                    <div class="hamburger"></div>
+                    <div class="hamburger"></div>
+                </div>
+            </label>
+        </div>
     </div>
-
-    <span id="1">1</span>
-    <space></space>
-    <div id="2">2</div>
-    <space></space>
-    <p id="3">3</p>
-    <space></space>
-    <a id="4">4</a>
-    <space></space>
-    <a id="5">5</a>
-    <space></space>
-    <a id="6">6</a>
-    <space></space>
-    <a id="7">7</a>
-    <space></space>
 </body>
 
 </html>
