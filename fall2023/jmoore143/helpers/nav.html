@@ -21,6 +21,10 @@
         z-index: 10;
     }
 
+    nav a[href="#"] {
+        cursor: default;
+    }
+
     nav a,
     .nav-item>div {
         text-decoration: none;
@@ -296,6 +300,9 @@
         new NavItem("index_1.7.html", "/fall2023/jmoore143/schoolwork/HW/index_1.7.html"),
         new NavItem("index_1.8.html", "/fall2023/jmoore143/schoolwork/HW/index_1.8.html"),
         new NavItem("index_1.8a.html", "/fall2023/jmoore143/schoolwork/HW/index_1.8a.html"),
+        new NavItem("index_1.8b.html", "/fall2023/jmoore143/schoolwork/HW/index_1.8b.html"),
+        new NavItem("index_1.8c.html", "/fall2023/jmoore143/schoolwork/HW/index_1.8c.html"),
+        new NavItem("index_1.9.html", "/fall2023/jmoore143/schoolwork/HW/index_1.9.html"),
     );
 
     school.add(daily, homework);
@@ -304,10 +311,11 @@
     let js = new NavItem("Javascript");
     let css = new NavItem("CSS");
     js.add(
-        new NavItem("URL Parser", "/fall2023/jmoore143/javascript%20demos/url_parser.html"),
+        new NavItem("URL Parser", "/fall2023/jmoore143/demos/js/url_parser.html"),
     );
     css.add(
         new NavItem("Image Text on Hover", "/fall2023/jmoore143/demos/css/image.html"),
+        new NavItem("show/hide dropdown", "/fall2023/jmoore143/demos/css/show_hide_details.html"),
     );
     experiments.add(html, js, css);
 
