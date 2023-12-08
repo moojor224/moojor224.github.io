@@ -153,6 +153,7 @@
     class Step {
         text = [];
         images = [];
+        media = [];
         constructor(title) {
             this.title = title;
         }
@@ -161,6 +162,9 @@
         }
         addImage(link) {
             this.images.push(link);
+        }
+        addMedia(link) {
+            this.media.push(link);
         }
         render() {
             let step = createElement("div", { classList: "step" }).add(
@@ -189,7 +193,9 @@
                         slides[i].style.display = "none";
                     }
                     slides[slideIndex - 1].style.display = "block";
-                    elem.querySelector(".numbertext").innerHTML = `${slideIndex}/${elem.querySelectorAll("img").length}`;
+                    if (numSlides > 1) {
+                        elem.querySelector(".numbertext").innerHTML = `${slideIndex}/${elem.querySelectorAll("img").length}`;
+                    }
                 }
                 function imgModal(l) {
                     document.body.add(createElement("div", {
@@ -234,7 +240,11 @@
                                 src: "/fall2023/jmoore143/res/loading.gif",
                                 onclick: e => imgModal(i)
                             })
-                        )),
+                        ))
+                    )
+                );
+                if (numSlides > 1) {
+                    pictures.querySelector(".slideshow-container").add(
                         createElement("div", {
                             classList: "controls"
                         }).add(
@@ -256,12 +266,28 @@
                                 classList: "next text-border"
                             })
                         )
-                    )
-                );
+                    );
+                }
                 currentSlide(1, pictures);
                 step.add(pictures);
             }
 
+            if (this.media.length > 0) {
+                step.add(...this.media.map(link => {
+                    let fileType = link.split(".").pop();
+                    let el;
+                    if (["mp4", "webm", "ogg", "ogv", "ogm", "avi"].includes(fileType)) {
+                        el = createElement("video", { controls: true, muted: true });
+                    } else if (["jpeg", "jpg", "png", "webp", "gif", "apng", "avif", "svg"].includes(fileType)) {
+                        el = createElement("img");
+                    } else {
+                        el = createElement("div", { innerHTML: "unknown media type: " + link });
+                    }
+                    el.src = link;
+                    el.style.width = "100%"
+                    return el;
+                }));
+            }
 
             let text = createElement("div").add(
                 ...this.text.map(t => createElement("p", {
