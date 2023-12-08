@@ -12,17 +12,24 @@
 
     <!-- <link rel="stylesheet" href="/fall2023/jmoore143/css/reset.css"> -->
     <link rel="stylesheet" href="/fall2023/jmoore143/css/global.css">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <style>
-        #coding-video{
+        #coding-video {
             display: grid;
             grid-template-columns: auto auto;
         }
-        #coding-video div:last-child{
+
+        #coding-video div:last-child {
             display: flex;
             align-items: center;
         }
+
         figcaption {
             padding: 10px;
+        }
+
+        section {
+            margin-left: 30px;
         }
     </style>
 </head>
@@ -34,12 +41,59 @@
             <p>this site is for pretty much anything that I do, whether it's web development or electronics</p>
         </div>
         <div>
-            <figure>
-                <video width="600px" controls>
-                    <source src="./sweaty_coding.mp4" type="video/mp4">
-                </video>
-                <figcaption>video representation of me coding this website</figcaption>
-              </figure>
+            <h2>Sections</h2>
+        </div>
+        <div>
+            <section>
+                <div>
+                    <h3>Projects</h3>
+                    <p>These projects are things that I have built involving electronics and 3D printing. </p>
+                </div>
+                <hr>
+                <div>
+                    <h3>Schoolwork</h3>
+                    <section>
+                        <div>
+                            <h2>Daily Assignments</h2>
+                            <p>these pages are the in-class assignments done for my beginning web programming class</p>
+                        </div>
+                        <div>
+                            <h2>Homework</h2>
+                            <p>These pages are all the homework assignment for my beginning web programming class</p>
+                        </div>
+                    </section>
+                </div>
+                <hr>
+                <div>
+                    <h2>Web Experiments</h2>
+                    <p>Pages here are the equivalent of coding doodles, and are sorted
+                        into categories based on the language they are mainly about. Some
+                        may be fully functional tools, while others are just short demos
+                        showing off a certain aspect that I think is useful</p>
+                </div>
+                <hr>
+                <div>
+                    <h2>Games</h2>
+                    <p>This section is self explanatory. It's games</p>
+                </div>
+                <hr>
+                <div>
+                    <h2>External Pages</h2>
+                    <p>These pages are for projects that I have worked on outside of
+                        my personal time, and are not hosted on this site.</p>
+                </div>
+                <hr>
+            </section>
+        </div>
+        <div>
+            <form>
+                <fieldset>
+                    <legend>video representation of me coding this website</legend>
+                    <video width="600px" controls>
+                        <source src="./sweaty_coding.mp4" type="video/mp4">
+                    </video>
+                </fieldset>
+            </form>
         </div>
     </main>
     <script>
