@@ -260,8 +260,11 @@
     let nav = new Nav();
     let projects = new NavItem("Projects", "#");
 
+    let prints = new NavItem("3D Prints Gallery", "/fall2023/jmoore143/projects/print_gallery");
+
     projects.add(
         new NavItem("7 Segment Display", "/fall2023/jmoore143/projects/7seg"),
+        prints,
     );
 
     // var school = new NavItem("Schoolwork", "/fall2023/jmoore143/schoolwork");
@@ -326,6 +329,12 @@
         new NavItem("3D Renderer (incomplete)", "/fall2023/jmoore143/games/3d%20renderer"),
     );
 
+    let external = new NavItem("External Pages", "#");
+
+    external.add(
+        new NavItem("FoosFit", "/fall2023/jmoore143/external/foosfit"),
+    );
+
     nav.add(new Spacer());
     nav.gitInject();
     nav.add(
@@ -334,6 +343,7 @@
         school,
         experiments,
         games,
+        external,
     );
     buildNav();
 </script>
