@@ -169,94 +169,98 @@
                     innerHTML: this.title,
                 })
             );
-            let pictures = createElement("div", { classList: "pics" });
-            let slideIndex = 1;
             let numSlides = this.images.length;
-            function plusSlides(n, elem) {
-                showSlides(slideIndex += n, elem);
-            }
-            function currentSlide(n, elem) {
-                showSlides(slideIndex = n, elem);
-            }
-            function showSlides(n, elem) {
-                let i;
-                let slides = elem.querySelectorAll(".slide");
-                if (n > slides.length) slideIndex = 1;
-                if (n < 1) slideIndex = slides.length;
-                for (i = 0; i < slides.length; i++) {
-                    slides[i].style.display = "none";
-                }
-                slides[slideIndex - 1].style.display = "block";
-                elem.querySelector(".numbertext").innerHTML = `${slideIndex}/${elem.querySelectorAll("img").length}`;
-            }
-            function imgModal(l) {
-                document.body.add(createElement("div", {
-                    style: {
-                        width: "100vw",
-                        height: "100vh",
-                        position: "fixed",
-                        top: "0px",
-                        left: "0px",
-                        backgroundColor: "#0007",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center"
-                    },
-                    onclick: function (event) {
-                        if (event.target == this) this.remove();
-                    },
-                    onwheel: (e) => e.preventDefault(),
+            if (numSlides > 0) {
 
-                }).add(createElement("img", {
-                    src: l,
-                    style: {
-                        maxHeight: "90%;",
-                        maxWidth: "90%",
+                let pictures = createElement("div", { classList: "pics" });
+                let slideIndex = 1;
+                function plusSlides(n, elem) {
+                    showSlides(slideIndex += n, elem);
+                }
+                function currentSlide(n, elem) {
+                    showSlides(slideIndex = n, elem);
+                }
+                function showSlides(n, elem) {
+                    let i;
+                    let slides = elem.querySelectorAll(".slide");
+                    if (n > slides.length) slideIndex = 1;
+                    if (n < 1) slideIndex = slides.length;
+                    for (i = 0; i < slides.length; i++) {
+                        slides[i].style.display = "none";
                     }
-                })))
-            }
-            function getSmall(url) {
-                url = url.split("/");
-                url.push("small", url.pop());
-                return url.join("/");
-            }
-            pictures.add(
-                createElement("div", { classList: "slideshow-container" }).add(
-                    ...this.images.map((i, n) => createElement("div", {
-                        classList: "slide"
-                    }).add(
-                        createElement("img", {
-                            dataset: {
-                                src: getSmall(i)
-                            },
-                            src: "/fall2023/jmoore143/res/loading.gif",
-                            onclick: e => imgModal(i)
-                        })
-                    )),
-                    createElement("div", {
-                        classList: "controls"
-                    }).add(
-                        createElement("a", {
-                            onclick: () => {
-                                plusSlides(-1, pictures);
-                            },
-                            innerHTML: "&#10094;",
-                            classList: "prev text-border"
-                        }),
+                    slides[slideIndex - 1].style.display = "block";
+                    elem.querySelector(".numbertext").innerHTML = `${slideIndex}/${elem.querySelectorAll("img").length}`;
+                }
+                function imgModal(l) {
+                    document.body.add(createElement("div", {
+                        style: {
+                            width: "100vw",
+                            height: "100vh",
+                            position: "fixed",
+                            top: "0px",
+                            left: "0px",
+                            backgroundColor: "#0007",
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "center"
+                        },
+                        onclick: function (event) {
+                            if (event.target == this) this.remove();
+                        },
+                        onwheel: (e) => e.preventDefault(),
+
+                    }).add(createElement("img", {
+                        src: l,
+                        style: {
+                            maxHeight: "90%;",
+                            maxWidth: "90%",
+                        }
+                    })))
+                }
+                function getSmall(url) {
+                    url = url.split("/");
+                    url.push("small", url.pop());
+                    return url.join("/");
+                }
+                pictures.add(
+                    createElement("div", { classList: "slideshow-container" }).add(
+                        ...this.images.map((i, n) => createElement("div", {
+                            classList: "slide"
+                        }).add(
+                            createElement("img", {
+                                dataset: {
+                                    src: getSmall(i)
+                                },
+                                src: "/fall2023/jmoore143/res/loading.gif",
+                                onclick: e => imgModal(i)
+                            })
+                        )),
                         createElement("div", {
-                            classList: "numbertext text-border"
-                        }),
-                        createElement("a", {
-                            onclick: () => {
-                                plusSlides(1, pictures)
-                            },
-                            innerHTML: "&#10095;",
-                            classList: "next text-border"
-                        })
+                            classList: "controls"
+                        }).add(
+                            createElement("a", {
+                                onclick: () => {
+                                    plusSlides(-1, pictures);
+                                },
+                                innerHTML: "&#10094;",
+                                classList: "prev text-border"
+                            }),
+                            createElement("div", {
+                                classList: "numbertext text-border"
+                            }),
+                            createElement("a", {
+                                onclick: () => {
+                                    plusSlides(1, pictures)
+                                },
+                                innerHTML: "&#10095;",
+                                classList: "next text-border"
+                            })
+                        )
                     )
-                )
-            );
-            currentSlide(1, pictures);
+                );
+                currentSlide(1, pictures);
+                step.add(pictures);
+            }
 
 
             let text = createElement("div").add(
@@ -266,7 +270,7 @@
             );
 
 
-            step.add(pictures, createElement("br"), text);
+            step.add(createElement("br"), text);
             return step;
         }
     }
