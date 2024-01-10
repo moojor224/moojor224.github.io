@@ -28,7 +28,7 @@
 }
 
 .json-key {
-	color: #444;
+	color: #b5b5b5;
 	margin-right: 4px;
 	margin-left: 4px;
 }
@@ -78,10 +78,10 @@
 
 .fa-caret-down {
 	border-width: 6px 5px 0 5px;
-	border-color: #000000 transparent
+	border-color: #fff transparent;
 }
 
 .fa-caret-right {
 	border-width: 5px 0 5px 6px;
-	border-color: transparent transparent transparent #000000;
+	border-color: transparent transparent transparent #fff;
 }
