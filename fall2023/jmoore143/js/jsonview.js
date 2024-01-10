@@ -40,9 +40,9 @@
         const iElem = createElement('i');
 
         if (node.expanded) {
-            iElem.className = 'fas fa-caret-down';
+            iElem.className = 'jsonview-fas jsonview-fa-caret-down';
         } else {
-            iElem.className = 'fas fa-caret-right';
+            iElem.className = 'jsonview-fas jsonview-fa-caret-right';
         }
 
         const caretElem = createElement('div', {
@@ -155,13 +155,13 @@
             depth: 0,
 
             setCaretIconRight() {
-                const icon = this.elem.querySelector('.fas');
-                icon.classList.replace('fa-caret-down', 'fa-caret-right');
+                const icon = this.elem.querySelector('.jsonview-fas');
+                icon.classList.replace('jsonview-fa-caret-down', 'jsonview-fa-caret-right');
             },
 
             setCaretIconDown() {
-                const icon = this.elem.querySelector('.fas');
-                icon.classList.replace('fa-caret-right', 'fa-caret-down');
+                const icon = this.elem.querySelector('.f');
+                icon.classList.replace('jsonview-fa-caret-right', 'jsonview--caret-down');
             },
 
             hideChildren() {

@@ -69,19 +69,19 @@
 	display: none;
 }
 
-.fas {
+.jsonview-fas {
 	display: inline-block;
 	width: 0;
 	height: 0;
 	border-style: solid;
 }
 
-.fa-caret-down {
+.jsonview-fa-caret-down {
 	border-width: 6px 5px 0 5px;
 	border-color: #fff transparent;
 }
 
-.fa-caret-right {
+.jsonview-fa-caret-right {
 	border-width: 5px 0 5px 6px;
 	border-color: transparent transparent transparent #fff;
 }
