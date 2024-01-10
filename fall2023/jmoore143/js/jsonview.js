@@ -160,8 +160,8 @@
             },
 
             setCaretIconDown() {
-                const icon = this.elem.querySelector('.f');
-                icon.classList.replace('jsonview-fa-caret-right', 'jsonview--caret-down');
+                const icon = this.elem.querySelector('.jsonview-fas');
+                icon.classList.replace('jsonview-fa-caret-right', 'jsonview-fa-caret-down');
             },
 
             hideChildren() {
