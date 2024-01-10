@@ -2,11 +2,12 @@
 <html lang="en">
 
 <head>
+    <!-- copyright Jordan Moore (jmoore143) -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>device stats</title>
     <style>
-        body {
+        main {
             font-family: monospace;
             background-color: #000;
             color: white;
@@ -14,10 +15,15 @@
     </style>
     <script src="/fall2023/jmoore143/js/jsonview.js"></script>
     <link rel="stylesheet" href="/fall2023/jmoore143/css/jsonview.css">
+    <script src="/fall2023/jmoore143/js/jstools.js"></script>
+    <script src="/fall2023/jmoore143/js/global.js"></script>
+    <link rel="stylesheet" href="/fall2023/jmoore143/css/global.css">
 </head>
 
 <body>
-    <div class="navigator"></div>
+    <main>
+        <div class="navigator"></div>
+    </main>
     <script>
         var obj = {};
         for (var i in navigator) {
