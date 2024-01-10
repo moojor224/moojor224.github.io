@@ -1,0 +1,96 @@
+/* body {
+	font-family: 'Open Sans';
+	font-size: 16px;
+	background-color: #fff;
+	color: #808080;
+	box-sizing: border-box;
+} */
+
+.line {
+	margin: 4px 0;
+	display: flex;
+	justify-content: flex-start;
+}
+
+.caret-icon {
+	width: 18px;
+	text-align: center;
+	cursor: pointer;
+}
+
+.empty-icon {
+	width: 18px;
+}
+
+.json-type {
+	margin-right: 4px;
+	margin-left: 4px;
+	color: var(--color105);
+	/* text-shadow:
+		1px 1px 0 #000,
+		-1px 1px 0 #000,
+		-1px -1px 0 #000,
+		1px -1px 0 #000; */
+}
+
+.json-key {
+	color: var(--color105);
+	margin-right: 4px;
+	margin-left: 4px;
+}
+
+.json-index {
+	margin-right: 4px;
+	margin-left: 4px;
+}
+
+/* .json-separator {} */
+
+.json-value {
+	margin-left: 8px;
+}
+
+.json-number {
+	/* color: #f9ae58; */
+	color: var(--color105);
+	/* color: var(--color53); */
+}
+
+.json-boolean {
+	/* color: #ec5f66; */
+	color: var(--color105);
+	/* color: var(--color34); */
+}
+
+.json-string {
+	/* color: #008609; */
+	color: var(--color105);
+	/* color: var(--color25); */
+}
+
+.json-size {
+	margin-right: 4px;
+	margin-left: 4px;
+	color: var(--color105);
+}
+
+.hide {
+	display: none;
+}
+
+.fas {
+	display: inline-block;
+	width: 0;
+	height: 0;
+	border-style: solid;
+}
+
+.fa-caret-down {
+	border-width: 6px 5px 0 5px;
+	border-color: #000000 transparent
+}
+
+.fa-caret-right {
+	border-width: 5px 0 5px 6px;
+	border-color: transparent transparent transparent #000000;
+}
