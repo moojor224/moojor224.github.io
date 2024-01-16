@@ -38,7 +38,7 @@
     <main>
         <div>
             <h1>Welcome to my website!</h1>
-            <p>this site is for pretty much anything that I do, whether it's web development or electronics</p>
+            <p>this site is for pretty much anything that I do, like web development or electronics</p>
         </div>
         <div>
             <h2>Sections</h2>
@@ -80,7 +80,8 @@
                 <div>
                     <h2>External Pages</h2>
                     <p>These pages are for projects that I have worked on outside of
-                        my personal time, and are not hosted on this site.</p>
+                        my personal time, and are not hosted on this site
+                        (or just don't fit in any other category).</p>
                 </div>
                 <hr>
             </section>
@@ -88,10 +89,15 @@
         <div>
             <form>
                 <fieldset>
-                    <legend>video representation of me coding this website</legend>
+                    <legend>video representation of me coding this website (warning: loud volume)</legend>
                     <video width="600px" controls>
                         <source src="./sweaty_coding.mp4" type="video/mp4">
                     </video>
+                    <script>
+                        let video = document.currentScript.previousElementSibling;
+                        video.volume = 0.05;
+                        video.currentTime = 2;
+                    </script>
                 </fieldset>
             </form>
         </div>
