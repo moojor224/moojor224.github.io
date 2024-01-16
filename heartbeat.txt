@@ -1,0 +1,14 @@
+egc(x) = a*(e^((-(x + d)^2) / (2*w)) + e^((-(x - d)^2) / (2*w))) + (h - abs(x / s) - x) e^((-(7*x)^2) / 2)
+
+a = 0.2
+d = 1.4
+h = 3
+s = 0.05
+w = 0.02
+
+To make it periodic, just do:
+
+saw(x) = x - ceil(x/L - 0.5)*L
+periodic_ecg(x) = ecg(saw(x))
+
+L >= 2d
