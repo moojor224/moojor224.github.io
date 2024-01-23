@@ -269,11 +269,11 @@
 
     // var school = new NavItem("Schoolwork", "/fall2023/jmoore143/schoolwork/fall2023");
     let school = new NavItem("Schoolwork", "#");
-    let daily = new NavItem("Daily Assignments", "#");
-    let homework = new NavItem("Homework Assignments", "#");
+    let fall2023_daily = new NavItem("Daily Assignments", "#");
+    let fall2023_homework = new NavItem("Homework Assignments", "#");
     let experiments = new NavItem("Web Experiments", "#");
 
-    daily.add(
+    fall2023_daily.add(
         new NavItem("Day 1", "/fall2023/jmoore143/schoolwork/fall2023/daily/day_01/day_1.html"),
         new NavItem("Day 2", "/fall2023/jmoore143/schoolwork/fall2023/daily/day_02/day_2.html"),
         new NavItem("Day 3", "/fall2023/jmoore143/schoolwork/fall2023/daily/day_03/day_3.html"),
@@ -293,7 +293,7 @@
         new NavItem("Day 12", "/fall2023/jmoore143/schoolwork/fall2023/daily/day_12"),
     );
 
-    homework.add(
+    fall2023_homework.add(
         new NavItem("index_1.1.html", "/fall2023/jmoore143/schoolwork/fall2023/HW/index_1.1.html"),
         new NavItem("index_1.2.html", "/fall2023/jmoore143/schoolwork/fall2023/HW/index_1.2.html"),
         new NavItem("index_1.3.html", "/fall2023/jmoore143/schoolwork/fall2023/HW/index_1.3.html"),
@@ -307,8 +307,16 @@
         new NavItem("index_1.8c.html", "/fall2023/jmoore143/schoolwork/fall2023/HW/index_1.8c.html"),
         new NavItem("index_1.9.html", "/fall2023/jmoore143/schoolwork/fall2023/HW/index_1.9.html"),
     );
+    let fall2023 = new NavItem("Fall 2023", "#");
+    fall2023.add(fall2023_daily, fall2023_homework);
 
-    school.add(daily, homework);
+    
+    let spring2024 = new NavItem("Spring 2024", "#");
+    spring2024.add(
+        new NavItem("Week 2", "/fall2023/jmoore143/schoolwork/spring2024/week 2")
+    );
+
+    school.add(fall2023, spring2024);
 
     let html = new NavItem("HTML");
     let js = new NavItem("Javascript");
