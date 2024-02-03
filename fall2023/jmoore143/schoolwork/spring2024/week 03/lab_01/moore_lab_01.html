@@ -1,0 +1,56 @@
+<!-- Copyright Jordan Moore (jmoore143) -->
+<!DOCTYPE html>
+<html lang="en">
+<!-- Name: Jordan Moore -->
+<!-- Course: ITSE 2302.200 -->
+<!-- Date: January 30, 2024-->
+<!-- Assignment: lab 1 - javascript basics -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 01</title>
+</head>
+
+<body>
+    <p id="output"></p>
+    <script>
+        function getValidName(message1, message2) {
+            let name = prompt(message1).trim();
+            while (true) {
+                if (name.includes(" ")) {
+                    return name.toLowerCase();
+                } else {
+                    name = prompt(message2);
+                }
+            }
+        }
+        function getValidNumber(message1, message2, min = -Infinity, max = Infinity) {
+            let num = prompt(message1).trim();
+            while (true) {
+                if (!num.match(/[^0-9]/g) && num.length > 0 && parseInt(num) >= min && parseInt(num) <= max) {
+                    return parseInt(num);
+                } else {
+                    num = prompt(message2 + ` (between ${min} and ${max})`);
+                }
+            }
+        }
+        let name = getValidName("please enter your first and last name", "please enter both your first and last name");
+        name= name.toUpperCase();
+        let currentYear = new Date().getFullYear();
+        let year = getValidNumber("please enter the year you were born", "please enter a valid year", 0, currentYear);
+        let favoriteNumber = getValidNumber("please enter your favorite number", "please enter a valid number", 0, 10);
+        let favoriteColor = prompt("what is your favorite color?");
+
+        let age = currentYear - year;
+        let upCaseName = name.toUpperCase();
+        let fav3 = favoriteNumber * 3;
+        document.getElementById("output").innerHTML = `${name} is ${age} years old.
+<br><br>
+${name}'s favorite color is ${favoriteColor} and favorite number is ${favoriteNumber}.
+<br><br>    
+Three times of the favorite number is ${fav3}.`;
+    </script>
+</body>
+
+</html>

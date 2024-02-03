@@ -1,0 +1,84 @@
+div.console {
+    --error-bg: #4b2f36;
+    --warn-bg: #42381f;
+    width: 400px;
+    height: 200px;
+    min-width: 200px;
+    min-height: 150px;
+    max-width: calc(100vw - 40px);
+    max-height: calc(100vh - 40px);
+    resize: both;
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    border: 1px solid black;
+    background-color: white;
+    color: white;
+    display: block;
+    transform: rotateX(180deg) rotateY(180deg);
+    font-family: monospace;
+    font-size: 16px;
+    overflow-y: auto;
+}
+
+.console-rows {
+    transform: rotateX(180deg) rotateY(180deg);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    clip-path: polygon(15px 0, 100% 0, 100% 100%, 0 100%, 0 15px);
+    background-color: #232327;
+    overflow-y: auto;
+}
+
+.console-rows>div {
+    width: 100%;
+    border-bottom: 1px solid gray;
+    padding: 5px 5px 5px 20px;
+    box-sizing: border-box;
+    line-height: 16px;
+    display: flex;
+    align-items: center;
+    /* flex-wrap: wrap; */
+}
+
+div.console div.icon {
+    width: 12px;
+    height: 12px;
+    margin: 4px;
+    display: inline-block;
+    transform: scale(calc(16 / 12));
+}
+
+div.console div.icon.error {
+    background-color: #ff3b6b;
+    mask-image: url("./custom_console/error-small.svg");
+}
+
+div.console div.icon.warn {
+    background-color: #d7b670;
+    mask-image: url("./custom_console/alert-small.svg");
+}
+
+div.console div.icon.info {
+    background-color: #f9f9fab3;
+    mask-image: url("./custom_console/info-small.svg");
+}
+
+@keyframes borderBlink {
+
+    from,
+    to {
+        border-color: transparent
+    }
+
+    50% {
+        border-color: red
+    }
+}
+
+.borderBlink {
+    border: 1px solid black;
+    animation: borderBlink 1s ease-in-out infinite;
+}

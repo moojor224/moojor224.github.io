@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>week 3 practice</title>
+</head>
+
+<body>
+    <script src="/fall2023/jmoore143/js/custom_console.js"></script><!-- ignore this -->
+    <h1>secret information</h1>
+    <div id="content"></div>
+    <div id="demo"></div>
+    <script>
+        let message = "Howdy it is tuesday";
+        let part = message.split(" ");
+        document.getElementById("content").innerHTML = message.toUpperCase();
+        message = message.toUpperCase();
+        console.log(message);
+        // 4 methods for extracting string characters
+        // at(pos)
+        // charAt(pos)
+        // charCodeAt(pos)
+        // [pos]
+
+        // 3 ways to get portion of string
+        // slice
+        // substring
+        // substr
+        // split()
+
+        // toUpperCase()
+        // toLowerCase()
+        let name = "joe";
+        let color = "blue";
+        let number = 15;
+        message = `welcome ${name}, your color is ${color} and your number is ${number}`;
+        document.getElementById("demo").innerHTML = message;
+        
+
+        // let x = 6;
+        // console.log(x);
+        // document.getElementById("content").innerHTML = "the secret number is " + x + "<br>The secter color is red";
+        // document.getElementById("content").innerHTML = `the secret number is ${x}<br>The secter color is red<br>${Math.ceil(Math.random() * 10)}`;
+        // alert("the secret number is " + x + "\nThe secret color is red");
+
+        // let y = Number("2"); // 8
+        // let z = 4;
+        // let total = y + z; // 2 + 4 = 6
+        // console.log(total);
+        // window.location.reload();
+        console.log("hello world");
+        console.log(true);
+        console.log((function(){}));
+    </script>
+
+</body>
+
+</html>
