@@ -1,0 +1,68 @@
+/* <!-- copyright Jordan Moore (jmoore143) --> */
+
+/* @import url("/jmoore143/css/reset.css"); */
+@import url("./themes.css");
+@import url("./fontawesome/css/all.css");
+@import url("./ember\ fonts.css");
+@import url("./elements.css");
+
+
+:root {
+    --light-text: #fff;
+    --dark-text: #000;
+}
+
+html {}
+
+body {
+    margin: 0px;
+    min-height: 100vh;
+}
+
+.hide-scroll,
+body {
+    /*IE, edge, firefox*/
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.hide-scroll::-webkit-scrollbar,
+body::-webkit-scrollbar {
+    /*chrome, safari, opera*/
+    display: none;
+}
+
+.text-border {
+    text-shadow: 1px 1px var(--accent),
+        -1px -1px var(--accent),
+        -1px 1px var(--accent),
+        1px -1px var(--accent);
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: flex-start;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 100px;
+    padding-top: 80px;
+    min-height: 100vh;
+    /* width: 80%; */
+    width: 80%;
+    /* padding: 0 10px; */
+    max-width: 800px;
+}
+
+main>div {
+    /* max-width: 1000px; */
+    width: 100%;
+}
+
+img[data-src] {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100px;
+}
+

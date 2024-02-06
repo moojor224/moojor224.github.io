@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- copyright Jordan Moore (jmoore143) -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .card {
+            height: 400px;
+            width: 400px;
+            background-image: url("/jmoore143/schoolwork/fall2023/graphics/1.jpg");
+            /* this is the image that you want to put the text over */
+            background-size: 100% 100%;
+
+            & .cover {
+                /* this css selector is functionally the exact same as this one: .card .cover{}*/
+                display: none;
+                height: 100%;
+                width: 100%;
+                background-color: #0004;
+                color: white;
+                text-shadow: 1px 1px #000, -1px 1px #000, 1px -1px #000, -1px -1px #000;/* adds a black shadow fo readability */
+                font-size: 20px;
+
+                align-items: center;
+                justify-content: center;
+
+            }
+
+            &:hover .cover {
+                /* this css selector is functionally the exact same as this one: .card:hover .cover{}*/
+                display: flex;
+            }
+        }
+
+        main>span {
+            border: 1px solid white;
+        }
+    </style>
+    <link rel="stylesheet" href="/jmoore143/css/global.css">
+
+    <script src="/jmoore143/js/backhome.js"></script>
+    <script src="/jmoore143/js/jstools.js"></script>
+    <script src="/jmoore143/js/global.js"></script>
+</head>
+
+<body>
+    <main>
+        <div>
+            <div class="card">
+                <div class="cover">here's some text</div>
+            </div>
+        </div>
+    </main>
+    <!-- <div class="card">
+        <img data-src="../schoolwork/fall2023/graphics/2.jpg" src="/jmoore143/res/loading.gif" alt="">
+        <div>some more text</div>
+    </div> -->
+</body>
+
+</html>

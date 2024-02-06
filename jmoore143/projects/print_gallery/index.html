@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- copyright Jordan Moore (jmoore143) -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Prints Gallery</title>
+    <link rel="stylesheet" href="/jmoore143/css/global.css">
+    <script src="/jmoore143/js/jstools.js"></script>
+    <script src="/jmoore143/js/global.js"></script>
+    <style>
+        div.gallery {
+            display: flex;
+            flex-wrap: wrap;
+            width: 100%;
+            justify-content: space-around;
+        }
+
+        div.gallery>div {
+            height: 200px;
+            margin: 10px;
+            position: relative;
+        }
+
+        div.gallery>div>img {
+            height: 100%;
+        }
+
+        div.gallery>div>img+span {
+            position: absolute;
+            opacity: 0;
+            transition-property: opacity;
+            transition-duration: 0.25s;
+            background-color: #0007;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            text-align: center;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        div.gallery>div>img:hover+span,
+        div.gallery>div>img+span:hover {
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <nav></nav>
+    <main>
+        <div>
+            <div class="gallery">
+                <div>
+                    <img src="/jmoore143/projects/print_gallery/res/benchy.jpg">
+                    <span>Boat</span>
+                </div>
+                <div>
+                    <img src="/jmoore143/projects/print_gallery/res/crate.jpg">
+                    <span>Storage Crate</span>
+                </div>
+                <div>
+                    <img src="/jmoore143/projects/print_gallery/res/lego.jpg">
+                    <span>LEGO Bricks</span>
+                </div>
+                <div>
+                    <img src="/jmoore143/projects/print_gallery/res/mouse_box.jpg">
+                    <span>Rugged Case for Mouse</span>
+                </div>
+                <div>
+                    <img src="/jmoore143/projects/print_gallery/res/n64.jpg">
+                    <span>N64 Logo</span>
+                </div>
+                <div>
+                    <img src="/jmoore143/projects/print_gallery/res/octopus.jpg">
+                    <span>Articulated Octopus</span>
+                </div>
+                <div>
+                    <img src="/jmoore143/projects/print_gallery/res/paladin.jpg">
+                    <span>Paladin Figure</span>
+                </div>
+                <div>
+                    <img src="/jmoore143/projects/print_gallery/res/parts_drawers.jpg">
+                    <span>Electronics Parts Drawers</span>
+                </div>
+                <div>
+                    <img src="/jmoore143/projects/print_gallery/res/tablet_stand.jpg">
+                    <span>Folding Tablet Stand</span>
+                </div>
+                <div>
+                    <img src="/jmoore143/projects/print_gallery/res/usb_holder.jpg">
+                    <span>USB Holder</span>
+                </div>
+            </div>
+        </div>
+        <div>
+            ...and many more to come!
+        </div>
+    </main>
+    <footer></footer>
+</body>
+
+</html>

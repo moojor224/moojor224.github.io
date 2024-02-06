@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- copyright Jordan Moore (jmoore143) -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="/jmoore143/css/global.css">
+    <script src="/jmoore143/js/jstools.js"></script>
+    <script src="/jmoore143/js/global.js"></script>
+    <style>
+        iframe {
+            width: 100%;
+            height: 800px;
+        }
+    </style>
+    <script>
+        function color(clr, img) {
+            return createElement("tr").add(
+                createElement("td", {
+                    innerHTML: clr
+                }),
+                createElement("td").add(
+                    createElement("img", {
+                        src: img
+                    })
+                )
+            );
+        }
+    </script>
+</head>
+
+<body>
+    <nav></nav>
+    <main>
+        <!-- <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSs9RTD3wG_siPBs7lg6d16JW9Rr5epg2Hdw738Gl7Pmpq0dvNhfY6pqaYCWmmBYwQvUL9nu20coxzL/pubhtml?widget=true&amp;headers=false"></iframe> -->
+        <table></table>
+    </main>
+    <footer></footer>
+    <script>
+        document.querySelector("main table").add(
+            color("white", "images/white.png"),
+            color("black", "images/black.png"),
+            color("light gray", "images/lightgray.png"),
+            color("space gray", "images/spacegray.png"),
+            color("blue", "images/blue.png"),
+            color("red", "images/red.png"),
+            color("gold", "images/gold.png"),
+            color("black/blue gradient", "images/black_blue.png"),
+        );
+    </script>
+</body>
+
+</html>

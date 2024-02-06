@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* *{
+            outline: 1px solid red;
+        } */
+        div.card{
+            /* width: 400px; */
+            display: inline-block;
+            background-color: var(--card-bg);
+            margin: 20px;
+        }
+        div.card h1{
+            color: var(--header-text);
+            background-color: var(--header-bg);
+            margin: 0px;
+            padding: 20px 10px;
+        }
+        div.card div.body{
+            display: flex;
+            gap: 10px;
+            flex-direction: column;
+            padding: 20px;
+            color: var(--body-text);
+        }
+        div.card div.body>div{
+            width: 100%;
+            text-align: center;
+        }
+        div.card div.body>div:last-of-type{
+            text-align: left;
+        }
+        div.card div.body>button{
+            width: 100%;
+            text-align: center;
+            color: var(--button-text);
+            background: var(--button-bg);
+            padding: 20px 0px;
+            outline: none;
+            border: none;
+        }
+        div.card.a{
+            --header-bg: #0020FF;
+            --header-text: white;
+            --card-bg: #1896AE;
+            --body-text: black;
+            --button-bg: #D22A33;
+            --button-text: white;
+        }
+        div.card.b{
+            --header-bg: #1896AE;
+            --header-text: black;
+            --card-bg: #C4B670;
+            --body-text: black;
+            --button-bg: #A36F3E;
+            --button-text: white;
+        }
+        div.card.c{
+            --header-bg: #C4B670;
+            --header-text: black;
+            --card-bg: #A36F3E;
+            --body-text: white;
+            --button-bg: #D22A33;
+            --button-text: white;
+        }
+        div.card.d{
+            --header-bg: #A36F3E;
+            --header-text: white;
+            --card-bg: #D22A33;
+            --body-text: white;
+            --button-bg: #0020FF;
+            --button-text: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card a">
+        <h1>Card Product Title</h1>
+        <div class="body">
+            <div class="text">Subtitle</div>
+            <div class="text">$19.99</div>
+            <div class="text">Some text about the product</div>
+            <button>Add to Cart</button>
+        </div>
+    </div>
+    <div class="card b">
+        <h1>Card Product Title</h1>
+        <div class="body">
+            <div class="text">Subtitle</div>
+            <div class="text">$19.99</div>
+            <div class="text">Some text about the product</div>
+            <button>Add to Cart</button>
+        </div>
+    </div>
+    <div class="card c">
+        <h1>Card Product Title</h1>
+        <div class="body">
+            <div class="text">Subtitle</div>
+            <div class="text">$19.99</div>
+            <div class="text">Some text about the product</div>
+            <button>Add to Cart</button>
+        </div>
+    </div>
+    <div class="card d">
+        <h1>Card Product Title</h1>
+        <div class="body">
+            <div class="text">Subtitle</div>
+            <div class="text">$19.99</div>
+            <div class="text">Some text about the product</div>
+            <button>Add to Cart</button>
+        </div>
+    </div>
+</body>
+
+</html>

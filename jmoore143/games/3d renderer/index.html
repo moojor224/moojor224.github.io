@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D "game"</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="/jmoore143/js/jstools.js"></script>
+    <script src="/jmoore143/js/global.js"></script>
+    <link rel="stylesheet" href="/jmoore143/css/global.css">
+    <script>
+    </script>
+</head>
+
+<body>
+    <main>
+        <div>
+            this is a prototype for a first-person maze game coded and rendered entirely in html, javascript, and css.
+            that means it doesn;t use webgl or html canvases. Everything you see is an HTML element positioned with css
+            and manipulated by javascript. Click the resume button to play.<br>controls:<br>look: move mouse<br>
+            move forward/left/back/right: w/a/s/d<br>sprint: shift<br>pause: escape<br><br>options menu and quit button
+            not currently functional
+        </div>
+        <viewport>
+            <offset>
+                <world>
+                    <axis>
+                        <plane></plane>
+                        <plane></plane>
+                        <plane></plane>
+                    </axis>
+                    <cube>
+                        <face></face>
+                        <face></face>
+                        <face></face>
+                        <face></face>
+                        <face></face>
+                        <face></face>
+                    </cube>
+                    <person></person>
+                    <level style="
+                            transform: translateY(1000px) rotateX(90deg);
+                        ">
+                        <!-- <floor style="
+                                width: 3000px;
+                                height: 3000px;
+                                transform-origin: top;
+                                transform:translateY(-200px);/* move down 200px (forwards)*/
+                            "></floor>
+                        <floor style="
+                                width: 640px;
+                                height: 100px;
+                            "></floor> -->
+                    </level>
+                </world>
+            </offset>
+            <overlay>
+                <hud></hud>
+                <fps>0fps</fps>
+            </overlay>
+            <menu>
+                <button onclick="viewport.requestPointerLock({
+                        unadjustedMovement: true,
+                    });
+                    document.querySelector('viewport menu').classList.add('hidden');">resume</button>
+                <button>options</button>
+                <button>quit</button>
+            </menu>
+        </viewport>
+    </main>
+    <script src="app.js"></script>
+</body>
+
+</html>

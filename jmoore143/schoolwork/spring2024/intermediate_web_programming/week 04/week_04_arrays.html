@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="/jmoore143/js/custom_console.js"></script>
+    <h1>Week 4 Arrays Practice</h1>
+    <div id="content"></div>
+    <script>
+        let colors = ["red", "blue", "orange", "purple", "brown"];
+        colors[2] = "violet";
+        let myfavcolor = colors[colors.length - 1];
+        colors.push("rose");
+        console.log(colors);
+        myfavcolor = colors.pop();
+
+        colors.shift();
+
+        colors.splice(2, 2, "blue", "yellow");
+        console.log(colors);
+
+        colors.splice(0, 3);
+        console.log(colors);
+
+        let output = myfavcolor;
+        console.log("fav color", myfavcolor);
+        document.getElementById("content").innerHTML = colors;
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Week 4 Practice</h1>
+    <div id="content"></div>
+    <div>
+        <button id="button">Display Secret Message</button>
+    </div>
+    <script>
+        let message = prompt("What is your important message");
+        // document.getElementById("content").innerHTML = message
+        let uppermessage = message.toUpperCase();
+        let lowermessage = message.toLowerCase();
+        output = `the secret message is "${message}".<br>In lowercase it is: "${message.toLowerCase()}"`;
+        const button = document.getElementById("button");
+        button.addEventListener("click", function () {
+            document.getElementById("content").innerHTML = output;
+        });
+    </script>
+</body>
+
+</html>

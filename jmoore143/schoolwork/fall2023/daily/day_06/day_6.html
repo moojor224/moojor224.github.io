@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<!-- Name: Jordan Moore            -->
+<!-- Course: ITSE 1311.001         -->
+<!-- Date: 2023-09-28              -->
+<!-- Assignment: In Class Day 6    -->
+
+<html lang="en">
+
+<head>
+    <!-- copyright Jordan Moore (jmoore143) -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graphics</title>
+    <script src="/jmoore143/js/backhome.js"></script><!-- Ignore this script. It's for when the file is uploaded onto the server-->
+    <style>
+        body {
+            background-color: #868686;
+            margin-top:0px;
+            padding-top: 0px;
+        }
+
+        img {
+            width: 125px;
+            border: 1px solid black;
+            /* border-radius: 7px; */
+        }
+
+        div {
+
+            /* float: right; */
+            background-color: #00708a;
+            border-radius: 30px;
+        }
+
+        div p {
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        div.container {
+            background-color: #26b449;
+            padding: 5px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+            /* justify-content: center; */
+            /* justify-content: space-between; */
+            /* justify-content: space-around; */
+            /* justify-content: space-evenly; */
+            /* With align items */
+            /* align-items: stretch; */
+            /* align-items: flex-start; */
+            /* align-items: center; */
+            /* align-content: center;  */
+            /* then flexwrap */
+
+        }
+
+        div.flexbox-item {
+            border: 3px solid black;
+            /* border-radius: 7px; */
+            width: 200px;
+            padding: 8px;
+            margin: 8px;
+
+            display: flex;
+            flex-direction: column;
+            /* justify-content: flex-start; */
+            align-items: center;
+
+        }
+
+        img {
+            width: 200px;
+            /* height: 125px; */
+        }
+        table, tr, td {
+            border: 3px solid green;
+            border-collapse: collapse;
+            
+        }
+        .innerp::first-letter {
+            font-size: 6rem;
+            float: left;
+        }
+        @keyframes rotate {
+            from{
+                transform: rotate(0deg);
+            }
+            to{
+                transform: rotate(360deg);
+            }
+        }
+        * {
+            /* width: 300px; */
+            animation-name: rotate;
+            animation-duration: 100000s;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+        }
+        img:hover {
+            /* width: 300px; */
+            animation-name: rotate;
+            animation-duration: 0.5s;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+        }
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Random Graphics that are used in our assignments</h1>
+        <hr>
+        <span>if you wait on this page long enough, things might start to look a bit weird</span>
+    </header>
+    <main>
+        <div class="container">
+            <div class="flexbox-item">
+                <p>art1.jpg</p>
+                <img src="../../graphics/art1.jpg" alt="art 1 graphic" title="art1.jpg">
+                <p class="innerp">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus, veritatis!
+                </p>
+            </div>
+            <br>
+            <div class="flexbox-item">
+                <p>art2.jpg</p>
+                <img src="../../graphics/art2.jpg" alt="art 2 graphic" title="art2.jpg">
+            </div>
+            <br>
+            <div class="flexbox-item">
+                <p>art3.jpg</p>
+                <img src="../../graphics/art3.jpg" alt="art 3 graphic" title="art3.jpg">
+            </div>
+            <br>
+            <div class="flexbox-item">
+                <p>art4.jpg</p>
+                <img src="../../graphics/art4.jpg" alt="art 4 graphic" title="art4.jpg">
+            </div>
+            <br>
+            <div class="flexbox-item">
+                <p>art5.jpg</p>
+                <img src="../../graphics/art5.jpg" alt="art 5 graphic" title="art5.jpg">
+            </div>
+            <br>
+            <div class="flexbox-item">
+                <p>art6.jpg</p>
+                <img src="../../graphics/art6.jpg" alt="art 6 graphic" title="art6.jpg">
+            </div>
+        </div>
+        <table>
+            <tr>
+                <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione, aliquid? At iusto beatae
+                    doloremque debitis, dolor esse vero fugit necessitatibus!</td>
+                <td>Laudantium, mollitia. Explicabo excepturi et enim consequuntur quam error deserunt obcaecati dolor
+                    vitae nam! Earum quasi praesentium itaque quod tenetur?</td>
+            </tr>
+            <tr>
+                <td>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fuga velit delectus quas possimus
+                    veritatis harum ab nemo consequatur rem ducimus.</td>
+                <td>Ut omnis amet, facilis similique laboriosam aperiam beatae commodi possimus voluptatem earum nostrum
+                    illum ipsum obcaecati dicta voluptates, officia neque.</td>
+            </tr>
+        </table>
+    </main>
+    <footer>
+        <img id="jordan_1" src="/jmoore143/schoolwork/fall2023/graphics/Screenshot from 2023-09-28 20-28-44.png" alt="">
+    </footer>
+</body>
+
+</html>
