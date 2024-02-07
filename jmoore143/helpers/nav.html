@@ -157,7 +157,7 @@
 
         }
         gitInject() {
-            if (window.location.hostname !== "moojor224.github.io") {
+            if (!["moojor224.github.io", "old.moojor224.com"].includes(window.location.hostname)) {
                 this.addGit();
             }
         }
