@@ -126,21 +126,21 @@
         console.defaultInfo.apply(console, args);
     };
 })();
-function createElement(tag = "span", data = {}) {
-    tag = typeof (tag) === "string" ? document.createElement(tag) : tag;
-    Object.keys(data).forEach(e => {
-        if (typeof data[e] === "object") {
-            createElement(tag[e] || (tag[e] = {}), data[e]);
-        } else {
-            if (tag instanceof HTMLElement && e.startsWith("on")) {
-                tag.addEventListener(e.substring(2), data[e]);
-            } else {
-                tag[e] = data[e];
-            }
-        }
-    });
-    return tag;
-}
+// function createElement(tag = "span", data = {}) {
+//     tag = typeof (tag) === "string" ? document.createElement(tag) : tag;
+//     Object.keys(data).forEach(e => {
+//         if (typeof data[e] === "object") {
+//             createElement(tag[e] || (tag[e] = {}), data[e]);
+//         } else {
+//             if (tag instanceof HTMLElement && e.startsWith("on")) {
+//                 tag.addEventListener(e.substring(2), data[e]);
+//             } else {
+//                 tag[e] = data[e];
+//             }
+//         }
+//     });
+//     return tag;
+// }
 
 window.Element.prototype.add = function (...args) {
     args.forEach(elem => {
