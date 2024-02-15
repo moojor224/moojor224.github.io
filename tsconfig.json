@@ -1,0 +1,18 @@
+{
+    "compilerOptions": {
+        "allowJs": true,
+        // "outDir": "./",
+        // "rootDir": "./",
+        "typeRoots": [
+            "@types"
+        ],
+        "types": [
+            "jstools"
+        ],
+        "noEmit": true
+    },
+    // "include": [
+    //     "**/*"
+    // ],
+    "compileOnSave": false
+}
