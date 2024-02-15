@@ -1,15 +1,17 @@
 // <!-- copyright Jordan Moore (jmoore143) -->
-
-function createElement(tag = "span", data = {}) {
-    tag = typeof (tag) === "string" ? document.createElement(tag) : tag;
-    Object.keys(data).forEach(e => {
-        if (typeof data[e] === "object") {
-            createElement(tag[e] || (tag[e] = {}), data[e]);
-        } else {
-            tag[e] = data[e];
-        }
-    });
-    return tag;
+let createElement = window.createElement;
+if (createElement === undefined) {
+    createElement = function (tag = "span", data = {}) {
+        tag = typeof (tag) === "string" ? document.createElement(tag) : tag;
+        Object.keys(data).forEach(e => {
+            if (typeof data[e] === "object") {
+                createElement(tag[e] || (tag[e] = {}), data[e]);
+            } else {
+                tag[e] = data[e];
+            }
+        });
+        return tag;
+    }
 }
 
 window.Element.prototype.add = function (...args) {
@@ -25,7 +27,7 @@ function displaySecs(seconds) {
 
 function extend(template, config) {
     let temp = Object.assign({}, template);
-    Object.entries(config).forEach(function(entry) {
+    Object.entries(config).forEach(function (entry) {
         if (temp[entry[0]] == undefined) {
             temp[entry[0]] = {};
         }
