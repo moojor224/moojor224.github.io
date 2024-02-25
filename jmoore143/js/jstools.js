@@ -20,6 +20,7 @@ window.Element.prototype.add = function (...args) {
     });
     return this;
 }
+window.HTMLSelectElement.prototype.add = window.Element.prototype.add;
 
 function displaySecs(seconds) {
     return new Date(seconds * 1000).toISOString().slice(11, 19);
@@ -38,4 +39,22 @@ function extend(template, config) {
         }
     });
     return temp;
+}
+
+function captureConsole() {
+    if (console.everything === undefined) {
+        console.everything = [];
+        ["log", "warn", "error", "debug"].forEach(e => {
+            let d = "default" + e.split("")[0].toUpperCase() + e.substring(1);
+            console[d] = console[e].bind(console);
+            console[e] = function (...args) {
+                console.everything.push({
+                    type: e,
+                    datetime: Date().toLocaleString(),
+                    value: args
+                });
+                console[d].apply(console, args);
+            }
+        });
+    }
 }

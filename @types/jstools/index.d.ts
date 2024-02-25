@@ -7,9 +7,27 @@ type NonFunctionPropertyNames<T> = {
     K; // return non-function property
 }[keyof T];
 
-type CreateElementOptions<T> = Pick<T, NonFunctionPropertyNames<T>>;
-// type CreateElementOptions<T> = CreateElementOptions<T>;
+type CreateElementOptions<E> = Pick<E, NonFunctionPropertyNames<E>>; // get properties available to set
 
 interface Window {
-    createElement<K extends keyof HTMLElementTagNameMap>(tagName: K, options?: CreateElementOptions<HTMLElementTagNameMap[K]>): HTMLElementTagNameMap[K];
+    createElement<Tag extends keyof HTMLElementTagNameMap>(tagName: Tag, options?: CreateElementOptions<HTMLElementTagNameMap[Tag]>): HTMLElementTagNameMap[Tag];
+}
+
+interface HTMLElement {
+    add: (...arg0: HTMLElement[]) => this
+}
+
+type Without<T, K> = {
+    [L in Exclude<keyof T, K>]: T[L];
+}
+
+type HTMLTabElement = HTMLDivElement;
+type HTMLWarnElement = HTMLDivElement;
+type HTMLErrorElement = HTMLDivElement;
+
+
+interface HTMLElementTagNameMap {
+    "warn": HTMLWarnElement
+    "error": HTMLErrorElement
+    "tab": HTMLTabElement
 }
