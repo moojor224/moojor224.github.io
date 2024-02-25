@@ -314,8 +314,28 @@
 
     let spring2024 = new NavItem("Spring 2024", "#");
     spring2024.add(
-        new NavItem("Week 2", "/jmoore143/schoolwork/spring2024/intermediate_web_programming/week_02"),
-        new NavItem("Week 3", "/jmoore143/schoolwork/spring2024/intermediate_web_programming/week_03/week_03_practice.html")
+        new NavItem("Week 2", "#").add(
+            new NavItem("hello world", "/jmoore143/schoolwork/spring2024/intermediate_web_programming/week_02/helloWorld.html"),
+            new NavItem("index", "/jmoore143/schoolwork/spring2024/intermediate_web_programming/week_02/index.html")
+        ),
+        new NavItem("Week 3", "#").add(
+            new NavItem("lab 1", "/jmoore143/schoolwork/spring2024/intermediate_web_programming/week_03/lab_01/moore_lab_01.html"),
+            new NavItem("week 3 practice", "/jmoore143/schoolwork/spring2024/intermediate_web_programming/week_03_practice.html"),
+        ),
+        new NavItem("Week 4").add(
+            new NavItem("Lab 2", "/jmoore143/schoolwork/spring2024/intermediate_web_programming/week_04/lab_02"),
+            new NavItem("week 4 practice", "/jmoore143/schoolwork/spring2024/intermediate_web_programming/week_04/week_04_arrays.html"),
+            new NavItem("week 4 arrays", "/jmoore143/schoolwork/spring2024/intermediate_web_programming/week_04/week_04_practice.html"),
+        ),
+        new NavItem("Week 5").add(
+            new NavItem("week 5 practice", "/jmoore143/schoolwork/spring2024/intermediate_web_programming/week_05/week_05_practice.html"),
+        ),
+        new NavItem("week 6").add(
+            // new NavItem("lab 3", "/jmoore143/schoolwork/spring2024/intermediate_web_programming/week_06/lab_03.html"),
+            new NavItem("date/time", "/jmoore143/schoolwork/spring2024/intermediate_web_programming/week_06/date_time.html"),
+            new NavItem("week 5 review", "/jmoore143/schoolwork/spring2024/intermediate_web_programming/week_06/week_05_review.html"),
+            new NavItem("week 6 bonus", "/jmoore143/schoolwork/spring2024/intermediate_web_programming/week_06/week_06_bonus.html"),
+        )
     );
 
     school.add(fall2023, spring2024);
