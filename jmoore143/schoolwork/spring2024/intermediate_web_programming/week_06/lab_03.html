@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- copyright Jordan Moore (jmoore143) -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <!-- <link rel="stylesheet" href="/jmoore143/css/global.css"> -->
+    <script src="/jmoore143/js/jstools.js"></script>
+    <!-- <script src="/jmoore143/js/global.js"></script> -->
+</head>
+
+<body>
+    <h1>how many days to the end of the semester</h1>
+    <div id="content"></div>
+    <script>
+        class Countdown{
+            constructor(date){
+                this.date = date;
+            }
+            render(){
+                let div = createElement("div");
+            }
+        }
+        const ms_to_day = 1000 * 60 * 60 * 24;
+        const ms_to_hr = 1000 * 60 * 60;
+        const ms_to_min = 1000 * 60;
+        const ms_to_sec = 1000;
+
+        const sem_start = new Date("2024/1/16");
+        const sem_end = new Date("2024/50/12");
+        const halloween = new Date(new Date().getFullYear(), 9, 31);
+        if(new Date() - halloween > 0){
+            halloween.setFullYear(new Date().getFullYear() + 1);
+        }
+        function format(date) {
+            const days = Math.floor(Math.abs(date / ms_to_day));
+            const hours = Math.floor(Math.abs(date / ms_to_hr)) % 24;
+            const minutes = Math.floor(Math.abs(date / ms_to_min)) % 60;
+            const seconds = Math.floor(Math.abs(date / ms_to_sec)) % 60;
+            return `${days} days, ${hours} hours, ${minutes} minutes, and ${seconds} seconds`;
+        }
+        window.setInterval(function () {
+            const today = new Date();
+            const start_diff = today - sem_start;
+            const end_diff = today - sem_end;
+            const hal_diff = today - halloween;
+            document.getElementById("content").innerHTML = (format(start_diff) + " days " + (start_diff > 0 ? "since" : "til") + " the start of the semester<br>") +
+                (format(end_diff) + " days " + (end_diff > 0 ? "since" : "til") + " the end of the semester<br>")+
+                (format(hal_diff) + " days " + (hal_diff > 0 ? "since" : "til") + " halloween<br>");
+        }, 100);
+    </script>
+</body>
+
+</html>

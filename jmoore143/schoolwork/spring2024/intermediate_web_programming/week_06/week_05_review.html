@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- copyright Jordan Moore (jmoore143) -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="/jmoore143/js/jstools.js"></script>
+    <!-- <script src="/jmoore143/js/global.js"></script> -->
+    <!-- <link rel="stylesheet" href="/jmoore143/css/global.css"> -->
+</head>
+
+<body>
+    <h1>Week 5 Review - </h1>
+    <div id="content"></div>
+    <div id="d"></div>
+
+    <script src="/jmoore143/js/custom_console.js"></script>
+    <script>
+        let count = "";
+        for (let i = 0; i < 10; i++) {
+            count += i + "<br>";
+        }
+        document.getElementById("content").innerHTML = count;
+
+        let count2 = ' ';
+        let i2 = 0;
+        while (i2 < 10) {
+            count2 += "<br>The number is " + i2;
+            i2++;
+        }
+        document.getElementById("content").innerHTML = count2;
+
+        let count3 = "";
+        let i3 = 0;
+        do {
+            count3 += "<br>The number is " + i3;
+            i3++;
+        } while (i3 < 10);
+        document.getElementById("content").innerHTML = count2;
+
+        let exit = 0;
+        let message = "";
+        if (exit == 0) {
+            message = "game has ended";
+        } else if (exit < 10) {
+            message = "let's play another round";
+        } else {
+            message = "let's play another round";
+        }
+        document.getElementById("content").innerHTML = message;
+
+        let day;
+        switch (new Date().getDay()) {
+            case 0:
+                day = "sunday";
+                break;
+            case 1:
+                day = "monday";
+                break;
+            case 2:
+                day = "tuesday";
+                break;
+            case 3:
+                day = "wednesday";
+                break;
+            case 4:
+                day = "thursday";
+                break;
+            case 5:
+                day = "friday";
+                break;
+            case 6:
+                day = "saturday";
+                break;
+        }
+        console.log("day", day);
+    </script>
+</body>
+
+</html>
