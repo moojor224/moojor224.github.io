@@ -1,22 +1,22 @@
-{
-    "new html page": {
-        "prefix": ["html:site"],
-        "description": "new page with included global files",
-        "body": [
-            "<!DOCTYPE html>",
-            "<html lang=\"en\">",
-            "<head>",
-            "<!-- copyright Jordan Moore (jmoore143) -->",
-            "<meta charset=\"UTF-8\">",
-            "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">",
-            "<title>Document</title>",
-            "<script src=\"/jmoore143/js/jstools.js\"></script>",
-            "<script src=\"/jmoore143/js/global.js\"></script>",
-            "<link rel=\"stylesheet\" href=\"/jmoore143/css/global.css\">",
-            "</head>",
-            "<body>",
-            "</body>",
-            "</html>",
-        ]
-    }
-}
+// {
+//     "new html page": {
+//         "prefix": ["html:site"],
+//         "description": "new page with included global files",
+//         "body": [
+//             "<!DOCTYPE html>",
+//             "<html lang=\"en\">",
+//             "<head>",
+//             "<!-- copyright Jordan Moore (jmoore143) -->",
+//             "<meta charset=\"UTF-8\">",
+//             "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">",
+//             "<title>Document</title>",
+//             "<script src=\"/jmoore143/js/jstools.js\"></script>",
+//             "<script src=\"/jmoore143/js/global.js\"></script>",
+//             "<link rel=\"stylesheet\" href=\"/jmoore143/css/global.css\">",
+//             "</head>",
+//             "<body>",
+//             "</body>",
+//             "</html>",
+//         ]
+//     }
+// }
