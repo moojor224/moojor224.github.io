@@ -1,22 +1,4 @@
 (function () {
-    function createElement(tag = "span", data = {}) {
-        tag = typeof (tag) === "string" ? document.createElement(tag) : tag;
-        Object.keys(data).forEach(e => {
-            if (typeof data[e] === "object") {
-                createElement(tag[e] || (tag[e] = {}), data[e]);
-            } else {
-                tag[e] = data[e];
-            }
-        });
-        return tag;
-    }
-
-    window.Element.prototype.add = function (...args) {
-        args.forEach(elem => {
-            this.append(elem);
-        });
-        return this;
-    }
     let styleSheets = document.querySelectorAll("link[href*=\"custom_console\"");
     if (styleSheets.length == 0) {
         let link = createElement("link", {
@@ -47,6 +29,10 @@
     function walkElement(el) {
         let div = createElement("div");
     }
+    function walkObject(obj) {
+        let el = createElement("details");
+        return el;
+    }
     /**
      * 
      * @param {Function} func 
@@ -59,9 +45,36 @@
             innerHTML: `function ${func.name}(){ ... }`
         });
         details.add(summary);
+        details.add(
+            createElement("div").add(
+                createElement("span", { innerHTML: "arguments: " }),
+                createElement("span", { innerHTML: func.arguments || undefined}),
+                ),
+            createElement("div").add(
+                createElement("span", { innerHTML: "caller: " }),
+                createElement("span", { innerHTML: func.caller || undefined }),
+            ),
+            createElement("div").add(
+                createElement("span", { innerHTML: "length: " }),
+                createElement("span", { innerHTML: func.length }),
+            ),
+            createElement("div").add(
+                createElement("span", { innerHTML: "name: " }),
+                createElement("span", { innerHTML: func.name }),
+            ),
+            createElement("div").add(
+                createElement("span", { innerHTML: "prototype: " }),
+                walkObject(Object.getPrototypeOf(func))
+            ),
+            createElement("div").add(
+                createElement("span", { innerHTML: "prototype" }),
+                walkObject(func.prototype)
+            )
+        );
         return details;
     }
     function addConsoleLog(logType, ...args) {
+        // console.defaultLog("adding", logType, "to console", args);
         let el = createElement("div", {
             backgroundColor: `var(--${logType}-bg)`
         });
@@ -101,30 +114,17 @@
             consoleDiv.scrollTop = consoleDiv.scrollHeight
         }
     }
+    if (console.everything === undefined) {
+        ["log", "warn", "error", "debug", "info"].forEach(e => {
+            let d = "default" + e.split("")[0].toUpperCase() + e.substring(1);
+            console[d] = console[e].bind(console);
+            console[e] = function (...args) {
+                addConsoleLog(e, ...args);
+                console[d].apply(console, args);
+            }
+        });
+    }
 
-    console.defaultLog = console.log.bind(console);
-    console.log = function (...args) {
-        addConsoleLog("log", ...args);
-        console.defaultLog.apply(console, args);
-    };
-
-    console.defaultError = console.error.bind(console);
-    console.error = function (...args) {
-        addConsoleLog("error", ...args);
-        console.defaultError.apply(console, args);
-    };
-
-    console.defaultWarn = console.warn.bind(console);
-    console.warn = function (...args) {
-        addConsoleLog("warn", ...args);
-        console.defaultWarn.apply(console, args);
-    };
-
-    console.defaultInfo = console.info.bind(console);
-    console.info = function (...args) {
-        addConsoleLog("info", ...args);
-        console.defaultInfo.apply(console, args);
-    };
 })();
 // function createElement(tag = "span", data = {}) {
 //     tag = typeof (tag) === "string" ? document.createElement(tag) : tag;
