@@ -1,5 +1,4 @@
 // <!-- copyright Jordan Moore (jmoore143) -->
-import { devlog } from "./dev-helper.js";
 
 /**
  * accepts a css selector and a callback function\
