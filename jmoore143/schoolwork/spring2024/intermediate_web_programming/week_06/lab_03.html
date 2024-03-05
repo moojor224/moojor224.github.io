@@ -5,51 +5,84 @@
     <!-- copyright Jordan Moore (jmoore143) -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title>countdown timers</title>
     <!-- <link rel="stylesheet" href="/jmoore143/css/global.css"> -->
-    <script src="/jmoore143/js/jstools.js"></script>
+    <!-- <script src="/jmoore143/js/jstools.js"></script> -->
     <!-- <script src="/jmoore143/js/global.js"></script> -->
+    <style>
+        span.number {
+            width: 200px;
+            display: inline-block;
+        }
+
+        body {
+            background-image: url("https://t4.ftcdn.net/jpg/04/74/73/77/360_F_474737740_v4aXt9NCsvLKFUTMSziuNr5PRZ5voVMs.jpg");
+            background-repeat: no-repeat;
+            background-position: top;
+            background-size: cover;
+            --shadow: white;
+            text-shadow: 1px 1px var(--shadow), -1px 1px var(--shadow), 1px -1px var(--shadow), -1px -1px var(--shadow);
+            font-size: 20px;
+            color: green;
+        }
+    </style>
 </head>
 
 <body>
-    <h1>how many days to the end of the semester</h1>
-    <div id="content"></div>
+    <h1>countdown timers</h1>
+    <br>
     <script>
-        class Countdown{
-            constructor(date){
-                this.date = date;
-            }
-            render(){
-                let div = createElement("div");
-            }
-        }
-        const ms_to_day = 1000 * 60 * 60 * 24;
-        const ms_to_hr = 1000 * 60 * 60;
-        const ms_to_min = 1000 * 60;
-        const ms_to_sec = 1000;
+        const DAY = 1000 * 60 * 60 * 24;
+        const HOUR = 1000 * 60 * 60;
+        const MINUTE = 1000 * 60;
+        const SECOND = 1000;
 
-        const sem_start = new Date("2024/1/16");
-        const sem_end = new Date("2024/50/12");
-        const halloween = new Date(new Date().getFullYear(), 9, 31);
-        if(new Date() - halloween > 0){
-            halloween.setFullYear(new Date().getFullYear() + 1);
+        function wrap(number) {
+            let span = document.createElement("span");
+            span.classList.add("number");
+            span.innerHTML = number;
+            return span.outerHTML;
         }
         function format(date) {
-            const days = Math.floor(Math.abs(date / ms_to_day));
-            const hours = Math.floor(Math.abs(date / ms_to_hr)) % 24;
-            const minutes = Math.floor(Math.abs(date / ms_to_min)) % 60;
-            const seconds = Math.floor(Math.abs(date / ms_to_sec)) % 60;
-            return `${days} days, ${hours} hours, ${minutes} minutes, and ${seconds} seconds`;
+            date = Math.abs(date);
+            const days = wrap(Math.floor(date / DAY) + " days");
+            const hours = wrap(Math.floor(date / HOUR) % 24 + " hours");
+            const minutes = wrap(Math.floor(date / MINUTE) % 60 + " minutes");
+            const seconds = wrap(Math.floor(date / SECOND) % 60 + " seconds");
+            return days + hours + minutes + seconds;
         }
-        window.setInterval(function () {
-            const today = new Date();
-            const start_diff = today - sem_start;
-            const end_diff = today - sem_end;
-            const hal_diff = today - halloween;
-            document.getElementById("content").innerHTML = (format(start_diff) + " days " + (start_diff > 0 ? "since" : "til") + " the start of the semester<br>") +
-                (format(end_diff) + " days " + (end_diff > 0 ? "since" : "til") + " the end of the semester<br>")+
-                (format(hal_diff) + " days " + (hal_diff > 0 ? "since" : "til") + " halloween<br>");
-        }, 100);
+        function makeCountdown(year, month, day, label, recurring, dateOverride) {
+            let date = new Date(`${year}/${month}/${day}`);
+            if (dateOverride) {
+                console.log(dateOverride);
+                date = new Date(dateOverride);
+            }
+            const now = new Date();
+            let diff = (+date) - (+now);
+            if (recurring) {
+                date.setFullYear(new Date().getFullYear());
+                diff = (+date) - (+now);
+                while (diff < 0) {
+                    date.setFullYear(date.getFullYear() + 1);
+                    diff = (+date) - (+now);
+                }
+            }
+            let div = document.createElement("div");
+            document.body.append(div);
+            window.setInterval(function () {
+                const now = new Date();
+                const diff = now - date;
+                div.innerHTML = `${format(diff)}${(diff > 0 ? "since" : "til")} ${label}`;
+            }, 100);
+        }
+        makeCountdown(2024, 1, 16, "the start of the semester", false);
+        makeCountdown(2024, 5, 12, "the end of the semester", false);
+        makeCountdown(2024, 10, 31, "halloween", true);
+        makeCountdown(2024, 12, 25, "christmas", true);
+        makeCountdown(2024, 1, 1, "new years", true);
+        makeCountdown(2001, 11, 29, "my birthday", true);
+        makeCountdown(2024, 7, 4, "the 4th of July", true);
+        makeCountdown(0, 0, 0, "10 seconds from when the page loaded", false, (+new Date()) + (10 * 1000));
     </script>
 </body>
 
